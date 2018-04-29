@@ -9,7 +9,7 @@ _   _
 |  _  |/ _ \ '__| '_ ` _ \ / _ \/ __|
 | | | |  __/ |  | | | | | |  __/\__ \
 \_| |_/\___|_|  |_| |_| |_|\___||___/
-web pentest framework created by AXANO
+pentest framework created by AXANO
 EOF
 }
 
