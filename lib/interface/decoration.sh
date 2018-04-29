@@ -61,6 +61,6 @@ __________-------____                 ____-------__________
 
 EOF
 
-fancyEcho "Web Pentesting Framework brought to you AXANO"
+fancyEcho "Web Pentesting Framework brought to you by AXANO"
 echo
 }
