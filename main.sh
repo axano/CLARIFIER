@@ -9,7 +9,7 @@ _   _
 |  _  |/ _ \ '__| '_ ` _ \ / _ \/ __|
 | | | |  __/ |  | | | | | |  __/\__ \
 \_| |_/\___|_|  |_| |_| |_|\___||___/
-framework created by AXANO
+auto created by AXANO
 EOF
 }
 
