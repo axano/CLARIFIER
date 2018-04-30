@@ -1,0 +1,16 @@
+campaign.deliveroo.com,104.16.227.204
+consumer-ow-api.deliveroo.com,104.16.227.204
+deliveroo.com,104.16.231.204
+developers-staging.deliveroo.com,104.16.231.204
+developers.deliveroo.com,104.16.228.204
+identity-staging.deliveroo.com,104.16.230.204
+identity.deliveroo.com,104.16.229.204
+kyc-staging.deliveroo.com,104.16.231.204
+kyc.deliveroo.com,104.16.230.204
+ldap.deliveroo.com,52.174.159.35
+restaurantperks.deliveroo.com,198.49.23.145
+restaurants.deliveroo.com,104.16.230.204
+staging-consumer-ow-api.deliveroo.com,104.16.229.204
+support-staging.deliveroo.com,104.16.231.204
+support.deliveroo.com,104.16.230.204
+www.deliveroo.com,104.16.230.204

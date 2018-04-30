@@ -39,8 +39,19 @@ done
 unset IFS
 }
 
+echoSuccess(){
+	now=$(date +"%H:%M":%S)
+	echo -e "\e[0;32m[ $now ] $1\e[m"
+}
+
+echoLog(){
+	now=$(date +"%H:%M":%S)
+	echo -e "\e[0;33m[ $now ] $1\e[m"
+}
+
 echoError(){
-	echo -e "\e[0;31m[-]$1\e[m"
+	now=$(date +"%H:%M":%S)
+	echo -e "\e[0;31m[ $now ] $1\e[m"
 }
 
 banner()
