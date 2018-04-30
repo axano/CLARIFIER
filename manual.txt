@@ -1,7 +1,4 @@
-
-
-
 INSTALLATION of prerequisites
 
 Aquatone:
-gem install aquatone
+  gem install aquatone

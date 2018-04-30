@@ -6,6 +6,15 @@ initialize(){
   echoSuccess "Initialization completed."
 }
 
+initializeFolderForEverySubdomain(){
+  echoLog "Initializing subdomain folder structure..."
+  DIRECTORY="$path/reports/$1"
+  while IFS= read -r line; do
+    #do $line
+    mkdir "$DIRECTORY/$line"
+  done < "$path/reports/$1/subdomains.txt"
+  echoLog "Initialization completed."
+}
 
 createReportFolder(){
 
@@ -22,6 +31,6 @@ createReportFolder(){
   mkdir $DIRECTORY
   if [ -d "$DIRECTORY" ]; then
     # Control will enter here if $DIRECTORY exists.
-    echoSuccess "DIRECTORY created."
+    echoSuccess "Directory created."
   fi
 }

@@ -5,6 +5,8 @@ checkPrerequisites(){
 preReqs=(
    'aquatone-discover'
    'wget'
+   'nmap'
+   'curl'
 
 )
 echo ''
