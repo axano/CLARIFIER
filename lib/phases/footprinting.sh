@@ -13,7 +13,7 @@ discoverPorts(){
   echoLog "Starting port discovery..."
   while IFS= read -r line; do
     #do $line
-    nmap $line > $path/reports/$1/$line/nmapResults.txt
+    nmap $line -oN $path/reports/$1/$line/nmapResults.txt
   done < "$path/reports/$1/subdomains.txt"
 
   echoSuccess "Port discovery completed."
@@ -23,8 +23,21 @@ discoverHTTPHeaders(){
   echoLog "Starting HTTP header discovery..."
   while IFS= read -r line; do
     #do $line
-    curl -I $line > $path/reports/$1/$line/nmapResults.txt
+    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
+    curl -I $line -m 1 -L > $path/reports/$1/$line/HTTPHeaders.txt
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "HTTP header discovery completed."
 
 }
+discoverHTMLOfIndex(){
+  echoLog "Starting Index HTML discovery..."
+  while IFS= read -r line; do
+    #do $line
+    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
+    curl $line -m 1 -L > $path/reports/$1/$line/IndexHTML.txt
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "Index HTML discovery completed."
+
+}
+#cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
+#wget -qO- google.com | tr \" \\n | grep https\*://
