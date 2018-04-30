@@ -8,11 +8,15 @@ fi
 }
 
 checkArguments(){
+  echoLog "Checking arguments..."
 if [ $# -eq 0 ]
   then
+    echoError "Missing arguments."
     cat $path/manual.txt
+    echoError "Exiting..."
     exit 1
 fi
+echoSuccess "Arguments OK."
 }
 
 checkInternetConnection(){
