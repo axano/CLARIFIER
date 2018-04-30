@@ -39,5 +39,15 @@ discoverHTMLOfIndex(){
   echoSuccess "Index HTML discovery completed."
 
 }
-#cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq
-#wget -qO- google.com | tr \" \\n | grep https\*://
+
+discoverURLSInIndex(){
+  echoLog "Starting Index URL discovery..."
+  while IFS= read -r line; do
+    #do $line
+    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
+    cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "Index URL discovery completed."
+}
+#cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq  56
+#wget -qO- google.com | tr \" \\n | grep https\*://   63

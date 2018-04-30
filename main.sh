@@ -21,3 +21,5 @@ initializeFolderForEverySubdomain $1
 discoverPorts $1
 '
 discoverHTTPHeaders $1
+discoverHTMLOfIndex $1
+discoverURLSInIndex $1
