@@ -8,3 +8,4 @@ publicIp=$(curl -s http://whatismyip.akamai.com/)
 
 banner
 checkPrerequisites
+checkArguments

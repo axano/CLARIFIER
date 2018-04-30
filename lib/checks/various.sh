@@ -10,7 +10,7 @@ fi
 checkArguments(){
 if [ $# -eq 0 ]
   then
-    usage
+    echo $0
     exit 1
 fi
 }
