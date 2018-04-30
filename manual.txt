@@ -1,1 +1,7 @@
-TODO
+
+
+
+INSTALLATION of prerequisites
+
+Aquatone:
+gem install aquatone

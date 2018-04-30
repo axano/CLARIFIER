@@ -1,6 +1,7 @@
 #!/bin/bash
 initialize(){
   echoLog "Initializing project $1 ..."
+
   createReportFolder $1
   echoSuccess "Initialization completed."
 }
