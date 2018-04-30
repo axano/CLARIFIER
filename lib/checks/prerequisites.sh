@@ -3,9 +3,8 @@
 checkPrerequisites(){
 #array with prerequisites
 preReqs=(
-   'nc'
-   'apache2'
-	 'moo'
+   'aquatone-discover'
+
 
 )
 echo ''

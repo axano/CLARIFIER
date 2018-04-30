@@ -10,7 +10,7 @@ fi
 checkArguments(){
 if [ $# -eq 0 ]
   then
-    echo $0
+    cat $path/manual.txt
     exit 1
 fi
 }

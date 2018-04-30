@@ -39,6 +39,10 @@ done
 unset IFS
 }
 
+echoError(){
+	echo -e "\e[0;31m[-]$1\e[m"
+}
+
 banner()
 {
 clear
