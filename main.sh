@@ -19,8 +19,7 @@ initialize $1
 discoverSubdomains $1
 initializeFolderForEverySubdomain $1
 discoverPorts $1
-'
-discoverHTTPHeaders $1
-discoverHTMLOfIndex $1
-discoverURLSInIndex $1
 
+discoverHTTPHeaders $1
+discoverHTMLOfIndex $1'
+discoverURLSInIndex $1

@@ -46,6 +46,7 @@ discoverURLSInIndex(){
     #do $line
     #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
+    cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep http\*:// >> $path/reports/$1/$line/urlsInIndex.txt
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Index URL discovery completed."
 }
