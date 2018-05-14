@@ -10,7 +10,7 @@ source $path/lib/phases/reconnaissance.sh
 localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
-: '
+: ''
 #prints banner
 banner
 #checks if all used programs are installed using 'which'
@@ -38,7 +38,7 @@ discoverHTTPHeaders $1
 discoverHTMLOfIndex $1
 #Gets the contents of robots.txt if there is one
 #(TODO parse results if 404 is returned)
-reconRobotsTxt $1 '
+reconRobotsTxt $1
 #grabs a screenshot of every subdomain using cutycapt
 #(TODO optimize screenshot width)
 reconIndexScreenshot $1
