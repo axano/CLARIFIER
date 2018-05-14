@@ -46,3 +46,13 @@ discoverURLSInIndex(){
 }
 #cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq  56
 #wget -qO- google.com | tr \" \\n | grep https\*://   63
+
+
+
+discoverHTMLComments(){
+  echoLog "Starting comment in index discovery..."
+  while IFS= read -r line; do
+    cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "Comments in index discovery completed."
+}

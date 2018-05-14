@@ -8,6 +8,8 @@ preReqs=(
    'nmap'
    'curl'
    'cutycapt'
+   'sed'
+   'awk'
    #'npm'
    #'nodejs'
 )
