@@ -7,7 +7,9 @@ preReqs=(
    'wget'
    'nmap'
    'curl'
-
+   'cutycapt'
+   #'npm'
+   #'nodejs'
 )
 echo ''
 echoLog "Checking prerequisites..."

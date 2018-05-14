@@ -2,7 +2,7 @@
 
 discoverSubdomains(){
   echoLog "Starting subdomain discovery..."
-  aquatone-discover --domain $1 --threads 10
+  aquatone-discover --domain $1 --threads 10 > /dev/null
   #cp ~/aquatone/$1/hosts.txt $path/reports/$1/
   #remove everything after ','
   sed 's/,.*//' ~/aquatone/$1/hosts.txt >  $path/reports/$1/subdomains.txt
@@ -12,8 +12,7 @@ discoverSubdomains(){
 discoverPorts(){
   echoLog "Starting port discovery..."
   while IFS= read -r line; do
-    #do $line
-    nmap $line -oN $path/reports/$1/$line/nmapResults.txt
+    nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
   done < "$path/reports/$1/subdomains.txt"
 
   echoSuccess "Port discovery completed."
@@ -22,19 +21,16 @@ discoverPorts(){
 discoverHTTPHeaders(){
   echoLog "Starting HTTP header discovery..."
   while IFS= read -r line; do
-    #do $line
-    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
-    curl -I $line -m 1 -L > $path/reports/$1/$line/HTTPHeaders.txt
+    curl -I $line -m 1 -L -s> $path/reports/$1/$line/HTTPHeaders.txt
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "HTTP header discovery completed."
 
 }
+
 discoverHTMLOfIndex(){
   echoLog "Starting Index HTML discovery..."
   while IFS= read -r line; do
-    #do $line
-    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
-    curl $line -m 1 -L > $path/reports/$1/$line/IndexHTML.txt
+    curl $line -m 1 -L -s> $path/reports/$1/$line/IndexHTML.txt
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Index HTML discovery completed."
 
@@ -43,8 +39,6 @@ discoverHTMLOfIndex(){
 discoverURLSInIndex(){
   echoLog "Starting Index URL discovery..."
   while IFS= read -r line; do
-    #do $line
-    #echo "curl -I $line > $path/reports/$1/$line/nmapResults.txt"
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep http\*:// >> $path/reports/$1/$line/urlsInIndex.txt
   done < "$path/reports/$1/subdomains.txt"
