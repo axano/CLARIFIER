@@ -1,25 +1,32 @@
 #!/bin/bash
-SCRIPT=`realpath -s $0`
-path=`dirname $SCRIPT`
 source $path/lib/interface/decoration.sh
 source $path/lib/checks/prerequisites.sh
 source $path/lib/checks/various.sh
 source $path/lib/phases/initialization.sh
 source $path/lib/phases/footprinting.sh
 source $path/lib/phases/reconnaissance.sh
+
+#####GLOBAL VARIABLES
+SCRIPT=`realpath -s $0`
+path=`dirname $SCRIPT`
 localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
+######VARIABLES INITIALIZED BY ARGUMENTS
+domainToTest=''
+
+
+######START OF PROGRAM
 : ''
 #prints banner
 banner
-#checks if all used programs are installed using 'which'
-checkPrerequisites
 #checks internet connection by using wget on 1.1.1.1
 checkInternetConnection
-#checks if the count of arguments is not equal to 0
-#(TODO check if arg is a valid url and add multiple options)
-checkArguments "$@"
+#checks argument validity and initializes global variables with the arguments
+#checkAndParseArguments "$@"
+checkAndParseArguments
+#checks if all used programs are installed using 'which'
+checkPrerequisites
 #creates a folder with the url name passed as argument in the reports folder
 #while checking if the folder already exist and checks if the folder is created
 initialize $1

@@ -1,7 +1,16 @@
+#################   MANUAL   #################
+
+
 INSTALLATION of prerequisites
+
+host:
+  sudo apt-get install dnsutils
 
 wget:
   sudo apt-get install wget
+
+curl:
+  sudo apt-get install curl
 
 nmap:
   sudo apt-get install nmap
@@ -12,11 +21,23 @@ curl:
 cutycapt:
   sudo apt-get install cutycapt
 
+sed:
+  sudo apt-get install sed
+
+awk:
+  sudo apt-get install awk
+
+getopts:
+  sudo apt-get install getopts
+
 
 
 Aquatone: https://github.com/michenriksen/aquatone
-  AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities. Follow this guide for Installation instructions.
-  You will also need a newer version of Ruby installed. If you plan to use AQUATONE in Kali Linux, you are already set up with this. If not, it is recommended to install Ruby with RVM.
+  AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities.
+  Follow this guide for Installation instructions.
+  You will also need a newer version of Ruby installed.
+  If you plan to use AQUATONE in Kali Linux, you are already set up with this.
+  If not, it is recommended to install Ruby with RVM.
   Finally, the tool itself can be installed with the following command in a terminal:
 
     gem install aquatone
@@ -24,7 +45,7 @@ Aquatone: https://github.com/michenriksen/aquatone
 
 
 
-  #########DEPRECATED########
+#########DEPRECATED########
   nodejs & npm & nvm
     FIRSTLY:
       as is..
