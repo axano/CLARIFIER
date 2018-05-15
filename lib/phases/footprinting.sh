@@ -72,3 +72,12 @@ discoverHTMLComments(){
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Comments in index discovery completed."
 }
+#Discovers Server HTTP methods using curl with -X OPTIONS,
+#Attention!: OPTIONS method can be disabled while some others aren't
+discoverServerMethods(){
+  echoLog "Starting server HTTP method discovery..."
+  while IFS= read -r line; do
+    curl $line -X OPTIONS -m 1 -L -s> $path/reports/$1/$line/serverMethods.txt
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "Server HTTP method discovery completed."
+}

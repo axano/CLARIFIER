@@ -9,6 +9,13 @@ reconRobotsTxt(){
   echoSuccess "robots.txt recon completed."
 }
 
+reconHumansTxt(){
+  echoLog "Starting humans.txt recon..."
+  while IFS= read -r line; do
+    curl  $line -m 1 -L -s > $path/reports/$1/$line/humans.txt
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "humans.txt recon completed."
+}
 
 #Takes a screenshot from the index page of the subdomain
 #and stores it as [subdomain.png]

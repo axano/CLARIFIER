@@ -46,6 +46,8 @@ initializeFolderForEverySubdomain $domainToTest
 discoverPorts $domainToTest
 #Gets the http headers using curl -I -m 1 -L -s
 discoverHTTPHeaders $domainToTest
+#Gets supported http methods using curl -X OPTIONS -I -m 1 -L -s 
+discoverServerMethods $domainToTest
 #Gets the http content using curl -m 1 -L -s
 discoverHTMLOfIndex $domainToTest
 #Gets the contents of robots.txt if there is one
