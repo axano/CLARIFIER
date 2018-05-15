@@ -1,4 +1,9 @@
 #!/bin/bash
+SCRIPT=`realpath -s $0`
+path=`dirname $SCRIPT`
+
+#####IMPORTS
+#Priority matters and imports have to come after path and SCRIPT variables
 source $path/lib/interface/decoration.sh
 source $path/lib/checks/prerequisites.sh
 source $path/lib/checks/various.sh
@@ -7,8 +12,7 @@ source $path/lib/phases/footprinting.sh
 source $path/lib/phases/reconnaissance.sh
 
 #####GLOBAL VARIABLES
-SCRIPT=`realpath -s $0`
-path=`dirname $SCRIPT`
+
 localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
@@ -24,7 +28,7 @@ banner
 checkInternetConnection
 #checks argument validity and initializes global variables with the arguments
 #checkAndParseArguments "$@"
-checkAndParseArguments
+checkAndParseArguments "$@"
 #checks if all used programs are installed using 'which'
 checkPrerequisites
 #creates a folder with the url name passed as argument in the reports folder

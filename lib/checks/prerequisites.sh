@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#checks prerequisites using which and prints installation manual
+#if there are uninstalled prerequisites
 checkPrerequisites(){
 #array with prerequisites
 preReqs=(

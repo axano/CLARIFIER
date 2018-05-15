@@ -1,0 +1,1 @@
+Usage: ./main.sh -d [example.com] [-h]

@@ -1,3 +1,5 @@
+#!/bin/bash
+#Checks script is running as root
 checkIsRoot()
 {
 # Make sure only root can run our script
@@ -7,8 +9,16 @@ if [[ $EUID -ne 0 ]]; then
 fi
 }
 
+#Checks argument validity parses every variable to
+#the corresponding global variable
 checkAndParseArguments(){
   echoLog "Checking arguments..."
+  if [ "$#" -lt 1 ]; then
+    echoError "No arguments found"
+    cat "$path/usage.txt"
+    echoError "Exiting..."
+    exit 1
+  fi
   while getopts ":hd:" opt; do
   case $opt in
     d)
@@ -21,21 +31,22 @@ checkAndParseArguments(){
         echoError "Exiting..."
         exit 1
       fi
-
-
       ;;
     h)
       echoSuccess "-h was triggered!" >&2
-      cat manual.txt
+      cat "$path/usage.txt"
       echoError "Exiting..."
       exit 1
       ;;
     :)
       echoError "Option -$OPTARG requires an argument." >&2
+      cat "$path/usage.txt"
+      echoError "Exiting..."
       exit 1
       ;;
     \?)
       echoError "Invalid option: -$OPTARG" >&2
+      cat "$path/usage.txt"
       echoError "Exiting..."
       exit 1
       ;;
@@ -43,7 +54,8 @@ checkAndParseArguments(){
 done
 echoSuccess "Arguments OK."
 }
-
+#Checks if there is an internet connection using wget and querries 1.1.1.1
+#Check is necessary because internet is needed to check if the domain is valid.
 checkInternetConnection(){
   echoLog "Checking internet connection..."
   wget -q --spider 1.1.1.1
@@ -55,7 +67,11 @@ checkInternetConnection(){
   fi
 }
 
+#Checks if the domain given with -d parameter is valid by using host.
+#host will return true if there is a dns record for a domain
+#as well as a reverse pointer for a given ip
 checkIsValidDomain(){
+  echo debug
   host $1 2>&1 > /dev/null
     if [ $? -eq 0 ]
     then
