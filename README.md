@@ -11,5 +11,7 @@
 ## TODO
 
 Add verbosity levels.
+
 Add noise/risk levels.
+
 Add subdomain takeover scanner.
