@@ -2,6 +2,8 @@
 
 ## Name has to be decided
 
-## Is an implementation of  https://github.com/axano/HackersUniversity/blob/master/WebApplicationPentestingCheatSheet
+## This project is an implementation of the reconnaissance phase of
+
+## https://github.com/axano/HackersUniversity/blob/master/WebApplicationPentestingCheatSheet
 
 ## TODO

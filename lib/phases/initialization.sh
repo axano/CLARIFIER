@@ -23,8 +23,7 @@ createReportFolder(){
   if [ -d "$DIRECTORY" ]; then
     # Control will enter here if $DIRECTORY exists.
     echoError "Directory $DIRECTORY already exists."
-    echoError "Exiting..."
-    exit 1
+    myExit
   fi
 
   echoLog "Creating directory with path $DIRECTORY..."

@@ -16,8 +16,7 @@ checkAndParseArguments(){
   if [ "$#" -lt 1 ]; then
     echoError "No arguments found"
     cat "$path/usage.txt"
-    echoError "Exiting..."
-    exit 1
+    myExit
   fi
   while getopts ":hd:" opt; do
   case $opt in
@@ -28,27 +27,23 @@ checkAndParseArguments(){
           domainToTest=$OPTARG
       else
         echoError "Invalid domain or domain cannot be reached."
-        echoError "Exiting..."
-        exit 1
+        myExit
       fi
       ;;
     h)
       echoSuccess "-h was triggered!" >&2
       cat "$path/usage.txt"
-      echoError "Exiting..."
-      exit 1
+      myExit
       ;;
     :)
       echoError "Option -$OPTARG requires an argument." >&2
       cat "$path/usage.txt"
-      echoError "Exiting..."
-      exit 1
+      myExit
       ;;
     \?)
       echoError "Invalid option: -$OPTARG" >&2
       cat "$path/usage.txt"
-      echoError "Exiting..."
-      exit 1
+      myExit
       ;;
   esac
 done
@@ -63,7 +58,7 @@ checkInternetConnection(){
       echoSuccess "Connection online."
   else
       echoError "No internet detected."
-      echoError "Exiting..."
+      myExit
   fi
 }
 
@@ -71,12 +66,11 @@ checkInternetConnection(){
 #host will return true if there is a dns record for a domain
 #as well as a reverse pointer for a given ip
 checkIsValidDomain(){
-  echo debug
   host $1 2>&1 > /dev/null
     if [ $? -eq 0 ]
     then
-        return 1
+        echo 1
     else
-        return 0
+        echo 0
     fi
 }

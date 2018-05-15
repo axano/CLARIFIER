@@ -1,7 +1,13 @@
 #!/bin/bash
 
+#discovers subdomains using aquatone-discover
+#aquatone stores the results in ~/aquatone/[domainname]/hosts.txt
+#copies the results in subdomains.txt
+#silence is achieved using > /dev/null on the end.
+#queries multiple domains even domains that are not active anymore
+#It will usualy take some time to complete
 discoverSubdomains(){
-  echoLog "Starting subdomain discovery..."
+  echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..."
   aquatone-discover --domain $1 --threads 10 > /dev/null
   #cp ~/aquatone/$1/hosts.txt $path/reports/$1/
   #remove everything after ','
@@ -9,6 +15,8 @@ discoverSubdomains(){
   echoSuccess "Subdomain discovery completed."
 }
 
+#Scans for open ports using nmap though only the most well known ports
+#Stores the results in nmapResults.txt
 discoverPorts(){
   echoLog "Starting port discovery..."
   while IFS= read -r line; do
@@ -18,6 +26,8 @@ discoverPorts(){
   echoSuccess "Port discovery completed."
 }
 
+#Queries the index page of the subdomain and stores the http headers it HTTPHeaders.txt
+#Uses curl
 discoverHTTPHeaders(){
   echoLog "Starting HTTP header discovery..."
   while IFS= read -r line; do
@@ -27,6 +37,8 @@ discoverHTTPHeaders(){
 
 }
 
+#Queries the index page of the subdomain and stores it in IndexHTML.txt
+#Uses curl
 discoverHTMLOfIndex(){
   echoLog "Starting Index HTML discovery..."
   while IFS= read -r line; do
@@ -36,6 +48,7 @@ discoverHTMLOfIndex(){
 
 }
 
+#Filters all urls found in IndexHTML.txt
 discoverURLSInIndex(){
   echoLog "Starting Index URL discovery..."
   while IFS= read -r line; do
@@ -48,7 +61,10 @@ discoverURLSInIndex(){
 #wget -qO- google.com | tr \" \\n | grep https\*://   63
 
 
-
+#Stores html comments found in IndexHTML.txt
+#works with multiline comments
+#TODO this implementation only stores the first comment it finds and wont capture
+#multiple comments
 discoverHTMLComments(){
   echoLog "Starting comment in index discovery..."
   while IFS= read -r line; do

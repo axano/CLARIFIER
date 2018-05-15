@@ -17,7 +17,6 @@ preReqs=(
    #'npm'
    #'nodejs'
 )
-echo ''
 echoLog "Checking prerequisites..."
 allOK=true
 for i in "${preReqs[@]}"
@@ -36,7 +35,6 @@ if [ "$allOK" = false ]; then
   echo ""
   cat "$path/manual.txt"
   echo ""
-  echoError "Exiting..."
-  exit 1
+  myExit
 fi
 }
