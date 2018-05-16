@@ -2,7 +2,7 @@
 
 #Checks argument validity parses every variable to
 #the corresponding global variable
-# {BUG} -d parameter is necessary but not check is done if it is present
+#NEEDS TO BE REFACTORED
 checkAndParseArguments(){
   echoLog "Checking arguments..."
   if [ "$#" -lt 1 ]; then
