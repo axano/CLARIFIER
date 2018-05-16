@@ -7,6 +7,8 @@ path=`dirname $SCRIPT`
 source $path/lib/interface/decoration.sh
 source $path/lib/uncategorized/housekeeping.sh
 source $path/lib/checks/prerequisites.sh
+source $path/lib/checks/internet.sh
+source $path/lib/checks/system.sh
 source $path/lib/checks/various.sh
 source $path/lib/phases/initialization.sh
 source $path/lib/phases/footprinting.sh
@@ -22,21 +24,40 @@ domainToTest=''
 
 
 ######START OF PROGRAM
-: ''
+
+### START PREQUEL ###
+#checks if script is run under root context
+checkIsRoot
 #prints banner
 banner
+#checks if all used programs are installed using 'which'
+checkPrerequisites
 #checks internet connection by using wget on 1.1.1.1
 checkInternetConnection
 #checks argument validity and initializes global variables with the arguments
 #checkAndParseArguments "$@"
 checkAndParseArguments "$@"
-#checks if all used programs are installed using 'which'
-checkPrerequisites
+#checks if global variable domainToTest is unreachable
+#domainToTest can be  an IP or a domain
+#validity is tested in checkAndParseArguments
+#check is done with  wget -q --spider
+checkIsUrlReachable $domainToTest
 #creates a folder with the url name passed as argument in the reports folder
 #while checking if the folder already exist and checks if the folder is created
+
+### END PREQUEL ###
+
+#initialize start time to calculate time taken to run main test
+start=`date +%s`
+
+### START MAIN TEST
+
+
+
 initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
 #through /dev/null piping the output,
+#if url given as parameter is an ip it will skip the discovery
 #the scan output is stored in in ~/aquatone/[url]/hosts.txt
 #and is then parsed to /reports/[url]/subdomains.txt using sed
 discoverSubdomains $domainToTest
@@ -46,13 +67,16 @@ initializeFolderForEverySubdomain $domainToTest
 discoverPorts $domainToTest
 #Gets the http headers using curl -I -m 1 -L -s
 discoverHTTPHeaders $domainToTest
-#Gets supported http methods using curl -X OPTIONS -I -m 1 -L -s 
+#Gets supported http methods using curl -X OPTIONS -I -m 1 -L -s
 discoverServerMethods $domainToTest
 #Gets the http content using curl -m 1 -L -s
 discoverHTMLOfIndex $domainToTest
 #Gets the contents of robots.txt if there is one
 #(TODO parse results if 404 is returned)
 reconRobotsTxt $domainToTest
+#Gets the contents of robots.txt if there is one
+#(TODO parse results if 404 is returned)
+reconHumansTxt $domainToTest
 #grabs a screenshot of every subdomain using cutycapt
 #(TODO optimize screenshot width)
 reconIndexScreenshot $domainToTest
@@ -60,5 +84,10 @@ reconIndexScreenshot $domainToTest
 #(TODO cascade search all urls )
 discoverURLSInIndex $domainToTest
 #filters html comments that are present in the html of index only
-#(TODO ability to filter multiple entries of comments)
 discoverHTMLComments $domainToTest
+
+### END MAIN TEST
+
+#initialize end date to calculate time taken to run main test
+end=`date +%s`
+echoTotalTimeTaken

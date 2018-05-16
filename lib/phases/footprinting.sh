@@ -1,18 +1,29 @@
 #!/bin/bash
 
 #discovers subdomains using aquatone-discover
+#if url given as parameter is an ip it will skip the discovery
 #aquatone stores the results in ~/aquatone/[domainname]/hosts.txt
 #copies the results in subdomains.txt
 #silence is achieved using > /dev/null on the end.
 #queries multiple domains even domains that are not active anymore
 #It will usualy take some time to complete
 discoverSubdomains(){
+  #result=$(checkIsValidIp $1)
+  #if [[ $result -eq 1 ]]; then
+  #if  checkIsValidIp $1 ; then
+  #echo "$(checkIsValidIp $1)"
+  checkIsValidIp $1
+  if [ $? -eq 1 ]; then
+      echo $1 > $path/reports/$1/subdomains.txt
+      echoLog "Skipping domain discovery as parameter is an ip address..."
+  else
   echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..."
   aquatone-discover --domain $1 --threads 10 > /dev/null
   #cp ~/aquatone/$1/hosts.txt $path/reports/$1/
   #remove everything after ','
   sed 's/,.*//' ~/aquatone/$1/hosts.txt >  $path/reports/$1/subdomains.txt
   echoSuccess "Subdomain discovery completed."
+  fi
 }
 
 #Scans for open ports using nmap though only the most well known ports
@@ -63,12 +74,11 @@ discoverURLSInIndex(){
 
 #Stores html comments found in IndexHTML.txt
 #works with multiline comments
-#TODO this implementation only stores the first comment it finds and wont capture
-#multiple comments
+#captures multiple comments
 discoverHTMLComments(){
   echoLog "Starting comment in index discovery..."
   while IFS= read -r line; do
-    cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.
+    cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.txt
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Comments in index discovery completed."
 }

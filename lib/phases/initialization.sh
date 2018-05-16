@@ -13,7 +13,7 @@ initializeFolderForEverySubdomain(){
     #do $line
     mkdir "$DIRECTORY/$line"
   done < "$path/reports/$1/subdomains.txt"
-  echoLog "Initialization completed."
+  echoSuccess "Initialization completed."
 }
 
 createReportFolder(){
