@@ -1,1 +1,1 @@
-Usage: ./main.sh -d [example.com] [-h]
+      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h]

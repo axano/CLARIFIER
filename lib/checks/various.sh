@@ -50,5 +50,10 @@ checkAndParseArguments(){
       ;;
   esac
 done
+if [ "$domainToTest" == '' ]; then
+  echoError "-d option is mandatory"
+  cat "$path/usage.txt"
+  myExit
+fi
 echoSuccess "Arguments checked."
 }

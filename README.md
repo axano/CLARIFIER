@@ -19,3 +19,5 @@ Add subdomain takeover scanner.
 Add automated nikto scan
 
 Add automated SQLMap scan
+
+Add tests to check if certain test is successful
