@@ -12,6 +12,7 @@ source $path/lib/checks/system.sh
 source $path/lib/checks/arguments.sh
 source $path/lib/phases/initialization.sh
 source $path/lib/phases/footprinting.sh
+source $path/lib/phases/intelligentFootprinting.sh
 source $path/lib/phases/reconnaissance.sh
 
 #####GLOBAL VARIABLES
@@ -52,7 +53,7 @@ start=`date +%s`
 
 ### START MAIN TEST
 
-
+## START DUMB TESTS
 
 initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
@@ -85,6 +86,16 @@ reconIndexScreenshot $domainToTest
 discoverURLSInIndex $domainToTest
 #filters html comments that are present in the html of index only
 discoverHTMLComments $domainToTest
+
+## END DUMB TESTS
+
+## START INTELLIGENT TESTS
+#searches for common vulnerabilities with nikto
+#takes some time to complete
+startNikto $domainToTest
+
+## END INTELLIGENT TESTS
+
 
 ### END MAIN TEST
 

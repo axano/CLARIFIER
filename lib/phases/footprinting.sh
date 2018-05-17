@@ -15,7 +15,7 @@ discoverSubdomains(){
   checkIsValidIp $1
   if [ $? -eq 1 ]; then
       echo $1 > $path/reports/$1/subdomains.txt
-      echoLog "Skipping domain discovery as parameter is an ip address..."
+      echoLog "Skipping domain discovery as $1 is an ip address..."
   else
   echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..."
   aquatone-discover --domain $1 --threads 10 > /dev/null
