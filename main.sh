@@ -22,7 +22,7 @@ publicIp=$(curl -s http://whatismyip.akamai.com/)
 
 ######VARIABLES INITIALIZED BY ARGUMENTS
 domainToTest=''
-
+singleUrl=0
 
 ######START OF PROGRAM
 
@@ -58,7 +58,9 @@ start=`date +%s`
 initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
 #through /dev/null piping the output,
-#if url given as parameter is an ip it will skip the discovery
+#if url given as parameter is an ip
+#or if the -s argument is given
+#it will skip the subdomain discovery
 #the scan output is stored in in ~/aquatone/[url]/hosts.txt
 #and is then parsed to /reports/[url]/subdomains.txt using sed
 discoverSubdomains $domainToTest

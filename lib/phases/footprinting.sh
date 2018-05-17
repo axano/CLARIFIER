@@ -13,9 +13,9 @@ discoverSubdomains(){
   #if  checkIsValidIp $1 ; then
   #echo "$(checkIsValidIp $1)"
   checkIsValidIp $1
-  if [ $? -eq 1 ]; then
+  if [ $? -eq 1 ] || [ "$singleUrl" -eq '1' ]; then
       echo $1 > $path/reports/$1/subdomains.txt
-      echoLog "Skipping domain discovery as $1 is an ip address..."
+      echoLog "Skipping subdomain discovery..."
   else
   echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..."
   aquatone-discover --domain $1 --threads 10 > /dev/null
@@ -25,7 +25,6 @@ discoverSubdomains(){
   echoSuccess "Subdomain discovery completed."
   fi
 }
-
 #Scans for open ports using nmap though only the most well known ports
 #Stores the results in nmapResults.txt
 discoverPorts(){

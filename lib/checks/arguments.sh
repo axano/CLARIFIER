@@ -10,7 +10,9 @@ checkAndParseArguments(){
     cat "$path/usage.txt"
     myExit
   fi
-  while getopts ":hd:" opt; do
+  #: before argument does not take value e.x :s
+  #: after argument requires value e.x d:
+  while getopts ":s :h d:" opt; do
   case $opt in
     d)
       echoSuccess "-d was triggered!" >&2
@@ -32,6 +34,10 @@ checkAndParseArguments(){
           myExit
         fi
       fi
+      ;;
+    s)
+      echoSuccess "-s was triggered!" >&2
+      singleUrl=1
       ;;
     h)
       echoSuccess "-h was triggered!" >&2
@@ -55,5 +61,5 @@ if [ "$domainToTest" == '' ]; then
   cat "$path/usage.txt"
   myExit
 fi
-echoSuccess "Arguments checked."
+echoSuccess "Arguments checked and parsed."
 }

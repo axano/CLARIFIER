@@ -1,3 +1,6 @@
 
-      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h]
-      
+      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s]
+        -d    domain to scan, requires parameter [www.example.com , 1.2.3.4 , example.com].
+        -s    single url to scan, skips subdomain discovery,
+              subdomain discovery is automatically skipped if ip is given with -d.
+        -h    prints usage.
