@@ -1,0 +1,38 @@
+- Nikto v2.1.6/2.1.5
++ Target Host: 192.168.1.34
++ Target Port: 80
++ GET Server leaks inodes via ETags, header found with file /, fields: 0x85d 0x56b2d097908d3 
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
++ OSVDB-3233: GET /icons/README: Apache default file found.
+- Nikto v2.1.6/2.1.5
++ Target Host: 192.168.1.34
++ Target Port: 80
++ GET Server leaks inodes via ETags, header found with file /, fields: 0x85d 0x56b2d097908d3 
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ OPTIONS Allowed HTTP Methods: GET, HEAD, POST, OPTIONS 
+- Nikto v2.1.6/2.1.5
++ Target Host: 192.168.1.34
++ Target Port: 80
++ GET Server leaks inodes via ETags, header found with file /, fields: 0x85d 0x56b2d097908d3 
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+- Nikto v2.1.6/2.1.5
++ Target Host: 192.168.1.34
++ Target Port: 80
++ GET Server leaks inodes via ETags, header found with file /, fields: 0x85d 0x56b2d097908d3 
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
+- Nikto v2.1.6/2.1.5
++ Target Host: 192.168.1.34
++ Target Port: 80
++ GET Server leaks inodes via ETags, header found with file /, fields: 0x85d 0x56b2d097908d3 
++ GET The anti-clickjacking X-Frame-Options header is not present.
++ GET The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ GET The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type

@@ -21,11 +21,11 @@ localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
 ######VARIABLES INITIALIZED BY ARGUMENTS
-domainToTest=''
+domainToTest='192.168.1.34'
 singleUrl=0
 
 ######START OF PROGRAM
-
+: '
 ### START PREQUEL ###
 #checks if script is run under root context
 checkIsRoot
@@ -90,7 +90,7 @@ discoverURLSInIndex $domainToTest
 discoverHTMLComments $domainToTest
 
 ## END DUMB TESTS
-
+'
 ## START INTELLIGENT TESTS
 #searches for common vulnerabilities with nikto
 #takes some time to complete
