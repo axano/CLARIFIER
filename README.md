@@ -18,3 +18,5 @@ Add subdomain takeover scanner.
 Add automated SQLMap scan
 
 Add tests to check if certain test is successful
+
+Add directory enumeration
