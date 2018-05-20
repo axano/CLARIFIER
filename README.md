@@ -10,13 +10,10 @@
 
 ## TODO
 
-Add verbosity levels.
 
 Add noise/risk levels.
 
 Add subdomain takeover scanner.
-
-Add automated nikto scan
 
 Add automated SQLMap scan
 
