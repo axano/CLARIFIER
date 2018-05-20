@@ -3,12 +3,12 @@
 #Checks if there is an internet connection using wget and querries 1.1.1.1
 #Check is necessary because internet is needed to check if the domain is valid.
 checkInternetConnection(){
-  echoLog "Checking internet connection..."
+  echoLog "Checking internet connection..." 2
   wget -q --spider 1.1.1.1
   if [ $? -eq 0 ]; then
-      echoSuccess "Connection online."
+      echoSuccess "Connection online." 1
   else
-      echoError "No internet detected."
+      echoError "No internet detected." 0
       myExit
   fi
 }
@@ -17,14 +17,14 @@ checkInternetConnection(){
 #host will return true if there is a dns record for a domain
 #as well as a reverse pointer for a given ip
 checkIsValidDomain(){
-  echoLog "Checking if parameter is a valid domain..."
-  host $1 2>&1 > /dev/null
+  echoLog "Checking if parameter is a valid domain..." 2
+  host $1  &> /dev/null
     if [ $? -eq 0 ]
     then
-        echoSuccess "Parameter is a valid domain."
+        echoSuccess "Parameter is a valid domain."  1
         return 1
     else
-        echoLog "Parameter is not a valid domain."
+        echoLog "Parameter is not a valid domain."  2
         return 0
     fi
 }
@@ -35,14 +35,16 @@ checkIsValidDomain(){
 #192.168.1.0 OK
 #192.168.1.-1 NOK
 #-192.168.1.-1 NOK
-#-192.168.1.1 OK {BUG}
+#-192.168.1.1 NOK
+#192.168.1.255.8 NOK 
 checkIsValidIp(){
-  echoLog "Checking if $1 is a valid IP address..."
-  if [[ "$1" =~ (([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5])\.([01]{,1}[0-9]{1,2}|2[0-4][0-9]|25[0-5]))$ ]]; then
-    echoSuccess "$1 is a valid IP address..."
+  echoLog "Checking if $1 is a valid IP address..." 2
+  test='([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])'
+  if [[ $1 =~ ^$test\.$test\.$test\.$test$ ]]; then
+    echoSuccess "$1 is a valid IP address..." 1
     return 1
   else
-    echoLog "$1 is not a valid IP address..."
+    echoLog "$1 is not a valid IP address..." 2
     return 0
   fi
 }
@@ -50,12 +52,12 @@ checkIsValidIp(){
 #Checks if the argument is reachable through internet using wget -q --spider
 #Check is necessary because internet is needed to check if the domain is valid.
 checkIsUrlReachable(){
-  echoLog "Checking if $1 is reachable..."
+  echoLog "Checking if $1 is reachable..." 2
   wget -q --spider $1
   if [ $? -eq 0 ]; then
-      echoSuccess "$1 is reachable."
+      echoSuccess "$1 is reachable." 1
   else
-      echoError "$1 is unreachable."
+      echoError "$1 is unreachable." 0
       myExit
   fi
 

@@ -39,19 +39,44 @@ done
 unset IFS
 }
 
+#Prints message if verbosity level needed is less or equal to the global verbosity level
+# $1 is the message $2 is the verbosityLevelNeeded and $verbosity is the global variable verbosity
+# initialized by the arguments.sh script
+#the program should be called in the following way
+#echoSuccess $message $verbosityLevelNeeded
+#that means that an important message will need a lesser verbosity level to be printed
 echoSuccess(){
-	now=$(date +"%H:%M":%S)
-	echo -e "\e[0;32m[ $now ] $1\e[m"
+	if [[ $2 -le $verbosity ]]; then
+		now=$(date +"%H:%M":%S)
+		echo -e "\e[0;32m[ $now ] $1\e[m"
+	fi
 }
 
+#Prints message if verbosity level needed is less or equal to the global verbosity level
+# $1 is the message $2 is the verbosityLevelNeeded and $verbosity is the global variable verbosity
+# initialized by the arguments.sh script
+#the program should be called in the following way
+#echoLog $message $verbosityLevelNeeded
+#that means that an important message will need a lesser verbosity level to be printed
 echoLog(){
-	now=$(date +"%H:%M":%S)
-	echo -e "\e[0;33m[ $now ] $1\e[m"
+	if [[ $2 -le $verbosity ]]; then
+		now=$(date +"%H:%M":%S)
+		echo -e "\e[0;33m[ $now ] $1\e[m"
+	fi
+
 }
 
+#Prints message if verbosity level needed is less or equal to the global verbosity level
+# $1 is the message $2 is the verbosityLevelNeeded and $verbosity is the global variable verbosity
+# initialized by the arguments.sh script
+#the program should be called in the following way
+#echoError $message $verbosityLevelNeeded
+#that means that an important message will need a lesser verbosity level to be printed
 echoError(){
-	now=$(date +"%H:%M":%S)
-	echo -e "\e[0;31m[ $now ] $1\e[m"
+	if [[ $2 -le $verbosity ]]; then
+		now=$(date +"%H:%M":%S)
+		echo -e "\e[0;31m[ $now ] $1\e[m"
+	fi
 }
 
 banner()

@@ -15,57 +15,57 @@ discoverSubdomains(){
   checkIsValidIp $1
   if [ $? -eq 1 ] || [ "$singleUrl" -eq '1' ]; then
       echo $1 > $path/reports/$1/subdomains.txt
-      echoLog "Skipping subdomain discovery..."
+      echoLog "Skipping subdomain discovery..." 3
   else
-  echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..."
+  echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..." 2
   aquatone-discover --domain $1 --threads 10 > /dev/null
   #cp ~/aquatone/$1/hosts.txt $path/reports/$1/
   #remove everything after ','
   sed 's/,.*//' ~/aquatone/$1/hosts.txt >  $path/reports/$1/subdomains.txt
-  echoSuccess "Subdomain discovery completed."
+  echoSuccess "Subdomain discovery completed." 1
   fi
 }
 #Scans for open ports using nmap though only the most well known ports
 #Stores the results in nmapResults.txt
 discoverPorts(){
-  echoLog "Starting port discovery..."
+  echoLog "Starting port discovery..." 2
   while IFS= read -r line; do
     nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
   done < "$path/reports/$1/subdomains.txt"
 
-  echoSuccess "Port discovery completed."
+  echoSuccess "Port discovery completed." 1
 }
 
 #Queries the index page of the subdomain and stores the http headers it HTTPHeaders.txt
 #Uses curl
 discoverHTTPHeaders(){
-  echoLog "Starting HTTP header discovery..."
+  echoLog "Starting HTTP header discovery..." 2
   while IFS= read -r line; do
     curl -I $line -m 1 -L -s> $path/reports/$1/$line/HTTPHeaders.txt
   done < "$path/reports/$1/subdomains.txt"
-  echoSuccess "HTTP header discovery completed."
+  echoSuccess "HTTP header discovery completed." 1
 
 }
 
 #Queries the index page of the subdomain and stores it in IndexHTML.txt
 #Uses curl
 discoverHTMLOfIndex(){
-  echoLog "Starting Index HTML discovery..."
+  echoLog "Starting Index HTML discovery..." 2
   while IFS= read -r line; do
     curl $line -m 1 -L -s> $path/reports/$1/$line/IndexHTML.txt
   done < "$path/reports/$1/subdomains.txt"
-  echoSuccess "Index HTML discovery completed."
+  echoSuccess "Index HTML discovery completed." 1
 
 }
 
 #Filters all urls found in IndexHTML.txt
 discoverURLSInIndex(){
-  echoLog "Starting Index URL discovery..."
+  echoLog "Starting Index URL discovery..." 2
   while IFS= read -r line; do
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep http\*:// >> $path/reports/$1/$line/urlsInIndex.txt
   done < "$path/reports/$1/subdomains.txt"
-  echoSuccess "Index URL discovery completed."
+  echoSuccess "Index URL discovery completed." 1
 }
 #cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq  56
 #wget -qO- google.com | tr \" \\n | grep https\*://   63
@@ -75,18 +75,18 @@ discoverURLSInIndex(){
 #works with multiline comments
 #captures multiple comments
 discoverHTMLComments(){
-  echoLog "Starting comment in index discovery..."
+  echoLog "Starting comment in index discovery..." 2
   while IFS= read -r line; do
     cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.txt
   done < "$path/reports/$1/subdomains.txt"
-  echoSuccess "Comments in index discovery completed."
+  echoSuccess "Comments in index discovery completed." 1
 }
 #Discovers Server HTTP methods using curl with -X OPTIONS,
 #Attention!: OPTIONS method can be disabled while some others aren't
 discoverServerMethods(){
-  echoLog "Starting server HTTP method discovery..."
+  echoLog "Starting server HTTP method discovery..." 2
   while IFS= read -r line; do
     curl $line -X OPTIONS -m 1 -L -s> $path/reports/$1/$line/serverMethods.txt
   done < "$path/reports/$1/subdomains.txt"
-  echoSuccess "Server HTTP method discovery completed."
+  echoSuccess "Server HTTP method discovery completed." 1
 }

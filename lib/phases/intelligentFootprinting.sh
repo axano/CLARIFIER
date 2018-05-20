@@ -5,18 +5,19 @@
 #Is silenced by adding "> /dev/null" on the end
 #This while loop that reads entries from file uses the file descriptor alternative
 #as the classic version used over the whole project interfered with nikto
+#(TODO) redirect stderror to echoError
 startNikto(){
-echoLog "Starting nikto test. May take a while [avg. 10 min]..."
+echoLog "Starting nikto test. May take a while [avg. 10 min]..." 2
 
 #while IFS= read -r line; do >>>>>>>> refactored this function as the old method
 #didnt use file a descriptor with as consequence that
 #nikto consumed all the entries of the file from stdin
 while read -u "$subdomains_fd" -r line; do
 
-  echoLog "Testing $line with nikto..."
+  echoLog "Testing $line with nikto..." 3
   nikto -h $line -o $path/reports/$1/$line/niktoResults.txt  > /dev/null
 
 done {subdomains_fd}<"$path/reports/$1/subdomains.txt"
 
-echoSuccess "Nikto test completed."
+echoSuccess "Nikto test completed." 1
 }

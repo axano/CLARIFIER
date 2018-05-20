@@ -1,14 +1,14 @@
 #!/bin/bash
 
 myExit(){
-  echoError "Exiting..."
+  echoError "Exiting..." 0
   exit 1
 }
 
 echoTotalTimeTaken(){
   seconds=$((end-start))
   parsedSecondsToTimeformat=$(convertSecondsToDaysHoursMinutesSeconds $seconds .)
-echoLog "Time taken to complete main test: $parsedSecondsToTimeformat "
+echoLog "Time taken to complete main test: $parsedSecondsToTimeformat " 1
 }
 
 convertSecondsToDaysHoursMinutesSeconds() {

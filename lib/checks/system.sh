@@ -5,7 +5,7 @@ checkIsRoot()
 {
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
-   echoError "This script must be run as root" 1>&2
+   echoError "This script must be run as root" 0
    myExit
 fi
 }

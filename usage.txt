@@ -1,6 +1,11 @@
 
-      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s]
+      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s] [-v {0...3} ]
         -d    domain to scan, requires parameter [www.example.com , 1.2.3.4 , example.com].
         -s    single url to scan, skips subdomain discovery,
               subdomain discovery is automatically skipped if ip is given with -d.
         -h    prints usage.
+        -v    verbosity level [ 0 || 1 || 2 || 3] standard is 1
+              0: print only errors
+              1: print errors and success messages only
+              2: print errors, success messages and medium importance log messages
+              3: print as much as possible

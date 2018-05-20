@@ -21,23 +21,23 @@ localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
 
 ######VARIABLES INITIALIZED BY ARGUMENTS
-domainToTest='192.168.1.34'
+domainToTest=''
 singleUrl=0
-
+verbosity=1
 ######START OF PROGRAM
-: '
+
 ### START PREQUEL ###
-#checks if script is run under root context
-checkIsRoot
 #prints banner
 banner
+#checks argument validity and initializes global variables with the arguments
+#checkAndParseArguments "$@"
+checkAndParseArguments "$@"
+#checks if script is run under root context
+checkIsRoot
 #checks if all used programs are installed using 'which'
 checkPrerequisites
 #checks internet connection by using wget on 1.1.1.1
 checkInternetConnection
-#checks argument validity and initializes global variables with the arguments
-#checkAndParseArguments "$@"
-checkAndParseArguments "$@"
 #checks if global variable domainToTest is unreachable
 #domainToTest can be  an IP or a domain
 #validity is tested in checkAndParseArguments
@@ -71,6 +71,8 @@ discoverPorts $domainToTest
 #Gets the http headers using curl -I -m 1 -L -s
 discoverHTTPHeaders $domainToTest
 #Gets supported http methods using curl -X OPTIONS -I -m 1 -L -s
+#(TODO script a request with all possible methods and parse results)
+#(TODO some servers dissalow OPTIONS but still allow other methods)
 discoverServerMethods $domainToTest
 #Gets the http content using curl -m 1 -L -s
 discoverHTMLOfIndex $domainToTest
@@ -90,7 +92,7 @@ discoverURLSInIndex $domainToTest
 discoverHTMLComments $domainToTest
 
 ## END DUMB TESTS
-'
+
 ## START INTELLIGENT TESTS
 #searches for common vulnerabilities with nikto
 #takes some time to complete
