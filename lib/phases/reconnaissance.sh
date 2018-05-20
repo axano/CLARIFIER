@@ -18,7 +18,7 @@ reconHumansTxt(){
 }
 
 #Takes a screenshot from the index page of the subdomain
-#and stores it as [subdomain.png]
+#and stores it as [subdomain.png] 
 #Uses cutycapt as it has less dependencies than aquatone or eyewitness
 #which use node & npm & nigtmare.js which is indeed a nightmare to install.
 reconIndexScreenshot(){
