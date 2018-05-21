@@ -1,18 +1,29 @@
 # CLARIFIER
 
-Command Line Advanced ReconaIssance FootprInting and EnumerRation tool
+Command Line Advanced ReconaIssance FootprInting and EnumerRation tool .
 
+This tool is a meta tool made for making web pentesting more efficient.
 
-## This tool is a meta tool made for making web pentesting more efficient.
+This project is an implementation of the reconnaissance, footprinting and enumeration phase of https://github.com/axano/HackersUniversity/blob/master/WebApplicationPentestingCheatSheet
 
-## This project is an implementation of the reconnaissance, footprinting and enumeration phase of.
+## Getting Started
 
-## https://github.com/axano/HackersUniversity/blob/master/WebApplicationPentestingCheatSheet
+### Prerequisites
+
+### Installing
+
+## Authors
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
 
 
 ## TODO
 
- 
+
 Add noise/risk levels.
 
 Add subdomain takeover scanner.
@@ -26,7 +37,7 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-   45 README.md
+   56 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -40,6 +51,6 @@ Add tests to check if certain test is successful
   111 main.sh
    81 manual.txt
    11 usage.txt
- 1468 total
+ 1479 total
 ```
 ### current line count tail
