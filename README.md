@@ -10,9 +10,28 @@ This project is an implementation of the reconnaissance, footprinting and enumer
 
 ### Prerequisites
 
+This tool is designed to work and tested on kali linux.
+Using this tool on another OS may be a pain in the a**.
+Refer to manual.txt for the installation proccess of each packet.
+
+host
+wget
+curl
+nmap
+curl
+cutycapt
+sed
+awk
+getopts
+Aquatone --> https://github.com/michenriksen/aquatone
+
 ### Installing
 
+git clone https://github.com/axano/CLARIFIER.git
+
 ## Authors
+
+Emmanouil Perselis A.K.A AXANO
 
 ## License
 
