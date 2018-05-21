@@ -24,6 +24,7 @@ sed
 awk
 getopts
 Aquatone --> https://github.com/michenriksen/aquatone
+dirb
 
 ### Installing
 
