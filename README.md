@@ -12,7 +12,7 @@ Command Line Advanced ReconaIssance FootprInting and EnumerRation tool
 
 ## TODO
 
-
+ 
 Add noise/risk levels.
 
 Add subdomain takeover scanner.
