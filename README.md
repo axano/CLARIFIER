@@ -51,9 +51,13 @@ getopts
 Aquatone --> https://github.com/michenriksen/aquatone
 dirb
 ```
-### Installing
+### Installation and usage
 ```
+On Kali 2017.3 >= the only program that has to be installed is aquatone.
+gem install aquatone
 git clone https://github.com/axano/CLARIFIER.git
+cd CLARIFIER
+./main -d example.com 
 ```
 ## Authors
 
