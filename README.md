@@ -1,5 +1,8 @@
 # CLARIFIER
 
+Command Line Advanced ReconaIssance FootprInting and EnumerRation tool
+
+
 ## This tool is a meta tool made for making web pentesting more efficient.
 
 ## This project is an implementation of the reconnaissance, footprinting and enumeration phase of.
@@ -23,7 +26,7 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-   42 README.md
+   45 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -37,6 +40,6 @@ Add tests to check if certain test is successful
   111 main.sh
    81 manual.txt
    11 usage.txt
- 1465 total
+ 1468 total
 ```
 ### current line count tail
