@@ -86,21 +86,21 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-  105 README.md
+  106 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
   114 lib/interface/decoration.sh
-   34 lib/phases/advancedFootprinting.sh
+   35 lib/phases/advancedFootprinting.sh
   102 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  111 main.sh
+  115 main.sh
    75 manual.txt
     1 reports/dummy.txt
    11 usage.txt
- 1523 total
+ 1529 total
 ```
 ### current line count tail

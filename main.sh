@@ -42,8 +42,7 @@ checkInternetConnection
 #validity is tested in checkAndParseArguments
 #check is done with  wget -q --spider
 checkIsUrlReachable $domainToTest
-#creates a folder with the url name passed as argument in the reports folder
-#while checking if the folder already exist and checks if the folder is created
+
 
 ### END PREQUEL ###
 
@@ -54,6 +53,8 @@ start=`date +%s`
 
 ## START SIMPLE TESTS
 
+#creates a folder with the url name passed as argument in the reports folder
+#while checking if the folder already exist and checks if the folder is created
 initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
 #through /dev/null piping the output,
@@ -99,6 +100,9 @@ discoverHTMLComments $domainToTest
 startNikto $domainToTest
 #Discovers directory structure of all subdomains
 #Uses dirb with the standard wordlist "/usr/share/dirb/wordlists/common.txt" (kali)
+#(BUG BUG BUG)
+#(BUG) by not determining if the endpoint works with https or plain http
+#(BUG) dirb fails.
 discoverDirectoryStructure $domainToTest
 
 ## END ADVANCED TESTS

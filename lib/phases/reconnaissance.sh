@@ -28,7 +28,7 @@ reconHumansTxt(){
 reconIndexScreenshot(){
   echoLog "Starting screenshot capture..." 2
   while IFS= read -r line; do
-    echoLog "Capturung screenshot of $line ..." 3
+    echoLog "Capturing screenshot of $line ..." 3
     cutycapt --url=$line --out=$path/reports/$1/$line/$line.png --max-wait=5000 &> /dev/null
     echoLog "Screenshot capture of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
