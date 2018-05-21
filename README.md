@@ -10,8 +10,10 @@ This project is an implementation of the reconnaissance, footprinting and enumer
 
 ### Prerequisites
 
-This tool is designed to work and tested on kali linux.
+This tool is designed to work and tested on kali linux 2017.3.
+
 Using this tool on another OS may be a pain in the a**.
+
 Refer to manual.txt for the installation proccess of each packet.
 
 host
