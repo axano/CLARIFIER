@@ -17,7 +17,6 @@ initializeFolderForEverySubdomain(){
 }
 
 createReportFolder(){
-
   DIRECTORY="$path/reports/$1"
   echoLog "Checking if $DIRECTORY already exists..." 2
   if [ -d "$DIRECTORY" ]; then

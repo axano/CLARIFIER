@@ -21,3 +21,18 @@ done {subdomains_fd}<"$path/reports/$1/subdomains.txt"
 
 echoSuccess "Nikto test completed." 1
 }
+
+#Discovers the directory structure of a given urls
+#(DIRTY SOLLUTION) appended 'http://' to all urls read
+#any http calls to https servers will be redirected anyway.
+#The standard wordlist is "/usr/share/dirb/wordlists/common.txt" (kali)
+#(TODO) detect the site technology used to adapt the extension to test (-X parameter)
+#E.g -X .html
+discoverDirectoryStructure(){
+  echoLog "Starting directory structure discovery..." 2
+  while IFS= read -r line; do
+    echoLog "Discovering directory structure of $line..." 3
+    dirb http://$line -o $path/reports/$1/$line/directoryStructure.txt &> /dev/null
+  done < "$path/reports/$1/subdomains.txt"
+  echoSuccess "Directory structure discovery completed." 1
+}

@@ -12,7 +12,7 @@ source $path/lib/checks/system.sh
 source $path/lib/checks/arguments.sh
 source $path/lib/phases/initialization.sh
 source $path/lib/phases/footprinting.sh
-source $path/lib/phases/intelligentFootprinting.sh
+source $path/lib/phases/advancedFootprinting.sh
 source $path/lib/phases/reconnaissance.sh
 
 #####GLOBAL VARIABLES
@@ -30,7 +30,6 @@ verbosity=1
 #prints banner
 banner
 #checks argument validity and initializes global variables with the arguments
-#checkAndParseArguments "$@"
 checkAndParseArguments "$@"
 #checks if script is run under root context
 checkIsRoot
@@ -53,7 +52,7 @@ start=`date +%s`
 
 ### START MAIN TEST
 
-## START DUMB TESTS
+## START SIMPLE TESTS
 
 initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
@@ -91,14 +90,18 @@ discoverURLSInIndex $domainToTest
 #filters html comments that are present in the html of index only
 discoverHTMLComments $domainToTest
 
-## END DUMB TESTS
+## END SIMPLE TESTS
 
-## START INTELLIGENT TESTS
+## START ADVANCED TESTS
+
 #searches for common vulnerabilities with nikto
 #takes some time to complete
 startNikto $domainToTest
+#Discovers directory structure of all subdomains
+#Uses dirb with the standard wordlist "/usr/share/dirb/wordlists/common.txt" (kali)
+discoverDirectoryStructure $domainToTest
 
-## END INTELLIGENT TESTS
+## END ADVANCED TESTS
 
 
 ### END MAIN TEST

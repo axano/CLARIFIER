@@ -1,3 +1,4 @@
 addCommitPush.sh
+addtest.sh
 reports/*
 getLines.sh
