@@ -24,7 +24,7 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-   42 README.md
+   44 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -37,8 +37,7 @@ Add tests to check if certain test is successful
    38 lib/uncategorized/housekeeping.sh
   111 main.sh
    61 manual.txt
-   38 niktoResults.txt
    11 usage.txt
- 1476 total
+ 1440 total
 ```
 ### current line count tail
