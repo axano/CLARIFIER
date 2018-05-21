@@ -1,7 +1,27 @@
-#################   MANUAL   #################
+  _____ _               _____  _____ ______ _____ ______ _____
+ / ____| |        /\   |  __ \|_   _|  ____|_   _|  ____|  __ \
+| |    | |       /  \  | |__) | | | | |__    | | | |__  | |__) |
+| |    | |      / /\ \ |  _  /  | | |  __|   | | |  __| |  _  /
+| |____| |____ / ____ \| | \ \ _| |_| |     _| |_| |____| | \ \
+ \_____|______/_/    \_\_|  \_\_____|_|    |_____|______|_|  \_\
+
+Command Line Advanced ReconaIssance FootprInting and EnumerRation tool
 
 
-INSTALLATION of prerequisites
+###############   USAGE    ###################
+
+      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s] [-v {0...3} ]
+        -d    domain to scan, requires parameter [www.example.com , 1.2.3.4 , example.com].
+        -s    single url to scan, skips subdomain discovery,
+              subdomain discovery is automatically skipped if ip is given with -d.
+        -h    prints usage.
+        -v    verbosity level [ 0 || 1 || 2 || 3] standard is 1
+              0: print only errors
+              1: print errors and success messages only
+              2: print errors, success messages and medium importance log messages
+              3: print as much as possible
+
+###############   INSTALLATION    ###################
 
 host:
   sudo apt-get install dnsutils
@@ -45,7 +65,7 @@ Aquatone: https://github.com/michenriksen/aquatone
 
 
 
-#########DEPRECATED########
+#########   DEPRECATED   ########
   nodejs & npm & nvm
     FIRSTLY:
       as is..

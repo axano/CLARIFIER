@@ -29,15 +29,15 @@ Add tests to check if certain test is successful
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
-  107 lib/interface/decoration.sh
+  114 lib/interface/decoration.sh
    34 lib/phases/advancedFootprinting.sh
   102 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
   111 main.sh
-   61 manual.txt
+   81 manual.txt
    11 usage.txt
- 1439 total
+ 1466 total
 ```
 ### current line count tail
