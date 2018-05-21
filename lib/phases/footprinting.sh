@@ -30,7 +30,9 @@ discoverSubdomains(){
 discoverPorts(){
   echoLog "Starting port discovery..." 2
   while IFS= read -r line; do
+    echoLog "Discovering ports of $line..." 3
     nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
+    echoLog "Port discovery of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
 
   echoSuccess "Port discovery completed." 1
@@ -41,7 +43,9 @@ discoverPorts(){
 discoverHTTPHeaders(){
   echoLog "Starting HTTP header discovery..." 2
   while IFS= read -r line; do
+    echoLog "Disvovering HTTP headers of $line ..." 3
     curl -I $line -m 1 -L -s> $path/reports/$1/$line/HTTPHeaders.txt
+    echoLog "HTTP header discovery of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "HTTP header discovery completed." 1
 
@@ -52,7 +56,9 @@ discoverHTTPHeaders(){
 discoverHTMLOfIndex(){
   echoLog "Starting Index HTML discovery..." 2
   while IFS= read -r line; do
+    echoLog "Discovering indes HTML of $line ..." 3
     curl $line -m 1 -L -s> $path/reports/$1/$line/IndexHTML.txt
+    echoLog "Index HTML discovery of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Index HTML discovery completed." 1
 
@@ -62,14 +68,13 @@ discoverHTMLOfIndex(){
 discoverURLSInIndex(){
   echoLog "Starting Index URL discovery..." 2
   while IFS= read -r line; do
+    echoLog "Filtering URL's in index for $line ..." 3
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep http\*:// >> $path/reports/$1/$line/urlsInIndex.txt
+    echoLog "URL filtering of index for $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Index URL discovery completed." 1
 }
-#cat urls.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*" | sort | uniq  56
-#wget -qO- google.com | tr \" \\n | grep https\*://   63
-
 
 #Stores html comments found in IndexHTML.txt
 #works with multiline comments
@@ -77,16 +82,21 @@ discoverURLSInIndex(){
 discoverHTMLComments(){
   echoLog "Starting comment in index discovery..." 2
   while IFS= read -r line; do
+    echoLog "Filtering comments in index for $line ..." 3
     cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.txt
+    echoLog "Comment filtering of index for $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Comments in index discovery completed." 1
 }
+
 #Discovers Server HTTP methods using curl with -X OPTIONS,
 #Attention!: OPTIONS method can be disabled while some others aren't
 discoverServerMethods(){
   echoLog "Starting server HTTP method discovery..." 2
   while IFS= read -r line; do
+    echoLog "Discovering HTTP methods of $line ..." 3
     curl $line -X OPTIONS -m 1 -L -s> $path/reports/$1/$line/serverMethods.txt
+    echoLog "HTTP method discovery for $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Server HTTP method discovery completed." 1
 }
