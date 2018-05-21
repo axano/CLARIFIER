@@ -20,10 +20,10 @@ Add automated SQLMap scan ?
 Add tests to check if certain test is successful
 
 
-# current line count head
+### current line count head```
     4 .gitignore
   674 LICENSE
-   43 README.md
+   42 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -38,5 +38,5 @@ Add tests to check if certain test is successful
    61 manual.txt
    38 niktoResults.txt
    11 usage.txt
- 1477 total
-# current line count tail
+ 1476 total
+```### current line count tail
