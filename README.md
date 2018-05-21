@@ -27,9 +27,9 @@ Aquatone --> https://github.com/michenriksen/aquatone
 dirb
 
 ### Installing
-
+```
 git clone https://github.com/axano/CLARIFIER.git
-
+```
 ## Authors
 
 Emmanouil Perselis A.K.A AXANO
