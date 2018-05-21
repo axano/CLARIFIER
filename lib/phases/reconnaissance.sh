@@ -4,7 +4,9 @@
 reconRobotsTxt(){
   echoLog "Starting robots.txt recon..." 2
   while IFS= read -r line; do
+    echoLog "Reconing robots.txt of $line ..." 3
     curl  $line/robots.txt -m 1 -L -s > $path/reports/$1/$line/robots.txt
+    echoLog "Recon of robots.txt for $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "robots.txt recon completed." 1
 }
@@ -12,19 +14,23 @@ reconRobotsTxt(){
 reconHumansTxt(){
   echoLog "Starting humans.txt recon..." 2
   while IFS= read -r line; do
+    echoLog "Reconing humans.txt of $line ..." 3
     curl  $line/humants.txt -m 1 -L -s > $path/reports/$1/$line/humans.txt
+    echoLog "Recon humans.txt of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "humans.txt recon completed." 1
 }
 
 #Takes a screenshot from the index page of the subdomain
-#and stores it as [subdomain.png] 
+#and stores it as [subdomain.png]
 #Uses cutycapt as it has less dependencies than aquatone or eyewitness
 #which use node & npm & nigtmare.js which is indeed a nightmare to install.
 reconIndexScreenshot(){
   echoLog "Starting screenshot capture..." 2
   while IFS= read -r line; do
+    echoLog "Capturung screenshot of $line ..." 3
     cutycapt --url=$line --out=$path/reports/$1/$line/$line.png --max-wait=5000 &> /dev/null
+    echoLog "Screenshot capture of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
   echoSuccess "Screenshot capture completed." 1
 }
