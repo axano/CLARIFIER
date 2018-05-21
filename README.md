@@ -38,7 +38,7 @@ Emmanouil Perselis A.K.A AXANO
 
 ## License
 
-This project is licensed under the GNU GPL licence - see the [LICENSE](LICENSE) file for details
+This project is licensed under the GNU GPLv3 licence - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
