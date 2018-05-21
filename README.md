@@ -1,12 +1,11 @@
-# webAppFramework
-
-## Name has to be decided.
+# CLARIFIER
 
 ## This tool is a meta tool made for making web pentesting more efficient.
 
-## This project is an implementation of the reconnaissance and footprinting phase of.
+## This project is an implementation of the reconnaissance, footprinting and enumeration phase of.
 
 ## https://github.com/axano/HackersUniversity/blob/master/WebApplicationPentestingCheatSheet
+
 
 ## TODO
 
@@ -24,7 +23,7 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-   43 README.md
+   42 README.md
    68 lib/checks/arguments.sh
    64 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -38,6 +37,6 @@ Add tests to check if certain test is successful
   111 main.sh
    81 manual.txt
    11 usage.txt
- 1466 total
+ 1465 total
 ```
 ### current line count tail
