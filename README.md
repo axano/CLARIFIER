@@ -16,7 +16,7 @@ This project is an implementation of the reconnaissance, footprinting and enumer
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU GPL licence - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 
