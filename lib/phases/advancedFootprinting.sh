@@ -22,7 +22,7 @@ echoSuccess "Nikto test completed." 1
 #(DIRTY SOLLUTION) appended 'http://' to all urls read
 #any http calls to https servers will be redirected anyway.
 #The standard wordlist is "/usr/share/dirb/wordlists/common.txt" (kali)
-#(TODO) detect the site technology used to adapt the extension to test (-X parameter)
+#(TODO) detect the site technology used to adapt the extension to test (-X parameter) 
 #E.g -X .html
 discoverDirectoryStructure(){
   echoLog "Starting directory structure discovery..." 2
