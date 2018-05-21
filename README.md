@@ -1,6 +1,6 @@
 # CLARIFIER
 
-Command Line Advanced ReconaIssance FootprInting and EnumerRation tool .
+Command Line Advanced ReconaIssance FootprInting and EnumeRation tool .
 
 This tool is a meta tool made for making web pentesting more efficient.
 
