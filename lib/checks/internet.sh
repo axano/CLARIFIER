@@ -83,14 +83,14 @@ checkIsUrlReachable(){
 #(WARNING) grep returns zero if string is found so it has to be inverted.
 #and nothing if string wasnt found
 checkHTTPS(){
-  echoLog "Checking if $1 uses HTTPS..." 2
+  echoLog "Checking if $1 uses HTTPS or HTTP..." 2
   nmap -oG - -p 443 $1 | grep -q "open"
   result=$?
   if [ $result -eq 0 ]; then
-    echoSuccess "$1 probably uses HTTPS as port 443 is open." 2
+    echoSuccess "$1 probably uses HTTPS as port 443 is open." 3
     return 1
   else
-    echoLog "$1 does not use HTTPS or hosts service on port other than 443." 2
+    echoLog "$1 does not use HTTPS or hosts service on port other than 443." 3
     return 0
   fi
 }

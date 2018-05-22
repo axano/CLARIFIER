@@ -31,7 +31,8 @@ discoverPorts(){
   echoLog "Starting port discovery..." 2
   while IFS= read -r line; do
     echoLog "Discovering ports of $line..." 3
-    nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
+    #nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
+    executeAndMonitorStatus "nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null"
     echoLog "Port discovery of $line done." 3
   done < "$path/reports/$1/subdomains.txt"
 

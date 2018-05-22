@@ -87,7 +87,7 @@ Add tests to check if certain test is successful
 ## AUTO GENERATED PART
 ### current line count head
 ```
-    4 .gitignore
+    5 .gitignore
   674 LICENSE
   110 README.md
    72 lib/checks/arguments.sh
@@ -95,16 +95,16 @@ Add tests to check if certain test is successful
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
-  123 lib/interface/decoration.sh
-   41 lib/phases/advancedFootprinting.sh
-  102 lib/phases/footprinting.sh
+  132 lib/interface/decoration.sh
+   45 lib/phases/advancedFootprinting.sh
+  103 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  117 main.sh
+  118 main.sh
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1647 total
+ 1663 total
 ```
 ### current line count tail

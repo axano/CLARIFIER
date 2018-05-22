@@ -32,7 +32,7 @@ for i in "${arr[@]}"
     do
 	collor=${collors[$RANDOM % ${#collors[@]} ]}
 	echo -ne $collor$i$resetCollor
-	sleep 0.06
+	sleep 0.045
 done
 echo -n " "
 done
@@ -64,7 +64,6 @@ echoLog(){
 		now=$(date +"%H:%M":%S)
 		echo -e "$orange[ $now ] $1 $resetCollor"
 	fi
-
 }
 
 #Prints message if verbosity level needed is less or equal to the global verbosity level
@@ -80,11 +79,19 @@ echoError(){
 	fi
 }
 
-echoDebug(){
 
+echoDebug(){
+	if [[ $debug -eq 1 ]]; then
 		now=$(date +"%H:%M":%S)
 		echo -e "$yellow DEBUG [ $now ] $1 $resetCollor"
+	fi
+}
 
+echoSpinner(){
+	if [[ $2 -le $verbosity ]]; then
+		now=$(date +"%H:%M":%S)
+		echo -ne "\r$orange[ $now ] $1 $resetCollor"
+	fi
 }
 
 
@@ -117,7 +124,9 @@ cat << "EOF"
 
 EOF
 
-fancyEcho "CLARIFIER tool brought to you by AXANO"
+fancyEcho "Command Line Advanced ReconaIssance FootprInting and EnumeRation tool"
+echo ''
+fancyEcho "Brought to you by AXANO"
 echo ''
 echo ''
 }

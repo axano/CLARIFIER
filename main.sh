@@ -5,6 +5,7 @@ path=`dirname $SCRIPT`
 #####IMPORTS
 #Priority matters and imports have to come after path and SCRIPT variables
 source $path/lib/interface/decoration.sh
+source $path/lib/interface/commandMonitoring.sh
 source $path/lib/uncategorized/housekeeping.sh
 source $path/lib/checks/prerequisites.sh
 source $path/lib/checks/internet.sh
@@ -19,7 +20,7 @@ source $path/lib/phases/reconnaissance.sh
 
 localIp=$(hostname -I)
 publicIp=$(curl -s http://whatismyip.akamai.com/)
-
+debug=0
 ######VARIABLES INITIALIZED BY ARGUMENTS
 domainToTest=''
 singleUrl=0

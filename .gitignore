@@ -2,3 +2,4 @@ addCommitPush.sh
 atest.sh
 reports/*
 getLines.sh
+testNewSnippets.sh
