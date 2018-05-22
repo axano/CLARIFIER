@@ -57,7 +57,7 @@ On Kali 2017.3 >= the only program that has to be installed is aquatone.
 gem install aquatone
 git clone https://github.com/axano/CLARIFIER.git
 cd CLARIFIER
-./main -d example.com 
+./main -d example.com
 ```
 ## Authors
 
@@ -72,6 +72,7 @@ This project is licensed under the GNU GPLv3 licence - see the [LICENSE](LICENSE
 
 ## TODO
 
+Add support for web services running on non standard ports
 
 Add noise/risk levels.
 
@@ -86,21 +87,22 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-  106 README.md
+  107 README.md
    68 lib/checks/arguments.sh
-   64 lib/checks/internet.sh
+   83 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
+   59 lib/checks/various.sh
   114 lib/interface/decoration.sh
-   35 lib/phases/advancedFootprinting.sh
+   36 lib/phases/advancedFootprinting.sh
   102 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  115 main.sh
+  116 main.sh
    75 manual.txt
     1 reports/dummy.txt
    11 usage.txt
- 1529 total
+ 1610 total
 ```
 ### current line count tail

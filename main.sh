@@ -103,6 +103,7 @@ startNikto $domainToTest
 #(BUG BUG BUG)
 #(BUG) by not determining if the endpoint works with https or plain http
 #(BUG) dirb fails.
+#(BUG BUG BUG)
 discoverDirectoryStructure $domainToTest
 
 ## END ADVANCED TESTS
