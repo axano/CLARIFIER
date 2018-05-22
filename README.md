@@ -84,12 +84,14 @@ Add automated SQLMap scan ?
 
 Add tests to check if certain test is successful
 
+Add connection quality calculator to estimate test time needed
+
 ## AUTO GENERATED PART
 ### current line count head
 ```
     5 .gitignore
   674 LICENSE
-  111 README.md
+  113 README.md
    72 lib/checks/arguments.sh
    96 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -106,6 +108,6 @@ Add tests to check if certain test is successful
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1707 total
+ 1709 total
 ```
 ### current line count tail
