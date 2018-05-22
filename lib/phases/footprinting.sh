@@ -17,7 +17,7 @@ discoverSubdomains(){
       echo $1 > $path/reports/$1/subdomains.txt
       echoLog "Skipping subdomain discovery..." 3
   else
-  echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..." 2
+  echoLog "Starting subdomain discovery. May take a while [avg. 10 min]..." 1
   aquatone-discover --domain $1 --threads 10 > /dev/null
   #cp ~/aquatone/$1/hosts.txt $path/reports/$1/
   #remove everything after ','
@@ -28,7 +28,7 @@ discoverSubdomains(){
 #Scans for open ports using nmap though only the most well known ports
 #Stores the results in nmapResults.txt
 discoverPorts(){
-  echoLog "Starting port discovery..." 2
+  echoLog "Starting port discovery..." 1
   while IFS= read -r line; do
     echoLog "Discovering ports of $line..." 3
     #nmap $line -oN $path/reports/$1/$line/nmapResults.txt > /dev/null
@@ -42,7 +42,7 @@ discoverPorts(){
 #Queries the index page of the subdomain and stores the http headers it HTTPHeaders.txt
 #Uses curl
 discoverHTTPHeaders(){
-  echoLog "Starting HTTP header discovery..." 2
+  echoLog "Starting HTTP header discovery..." 1
   while IFS= read -r line; do
     echoLog "Disvovering HTTP headers of $line ..." 3
     curl -I $line -m 1 -L -s> $path/reports/$1/$line/HTTPHeaders.txt
@@ -55,7 +55,7 @@ discoverHTTPHeaders(){
 #Queries the index page of the subdomain and stores it in IndexHTML.txt
 #Uses curl
 discoverHTMLOfIndex(){
-  echoLog "Starting Index HTML discovery..." 2
+  echoLog "Starting Index HTML discovery..." 1
   while IFS= read -r line; do
     echoLog "Discovering indes HTML of $line ..." 3
     curl $line -m 1 -L -s> $path/reports/$1/$line/IndexHTML.txt
@@ -67,7 +67,7 @@ discoverHTMLOfIndex(){
 
 #Filters all urls found in IndexHTML.txt
 discoverURLSInIndex(){
-  echoLog "Starting Index URL discovery..." 2
+  echoLog "Starting Index URL discovery..." 1
   while IFS= read -r line; do
     echoLog "Filtering URL's in index for $line ..." 3
     cat $path/reports/$1/$line/IndexHTML.txt | tr \" \\n | grep https\*:// > $path/reports/$1/$line/urlsInIndex.txt
@@ -81,7 +81,7 @@ discoverURLSInIndex(){
 #works with multiline comments
 #captures multiple comments
 discoverHTMLComments(){
-  echoLog "Starting comment in index discovery..." 2
+  echoLog "Starting comment in index discovery..." 1
   while IFS= read -r line; do
     echoLog "Filtering comments in index for $line ..." 3
     cat $path/reports/$1/$line/IndexHTML.txt |  awk '/<!--/,/-->/'> $path/reports/$1/$line/htmlComments.txt
@@ -93,7 +93,7 @@ discoverHTMLComments(){
 #Discovers Server HTTP methods using curl with -X OPTIONS,
 #Attention!: OPTIONS method can be disabled while some others aren't
 discoverServerMethods(){
-  echoLog "Starting server HTTP method discovery..." 2
+  echoLog "Starting server HTTP method discovery..." 1
   while IFS= read -r line; do
     echoLog "Discovering HTTP methods of $line ..." 3
     curl $line -X OPTIONS -m 1 -L -s> $path/reports/$1/$line/serverMethods.txt

@@ -12,7 +12,7 @@
 #(NOTE)if both 80 and 443 ports are specified it will take twice as long to complete
 #(TODO) check if https url give different results and patch if so
 startNikto(){
-echoLog "Starting nikto test. May take a while [avg. 10 min for each subdomain]..." 2
+echoLog "Starting nikto test. May take a while [avg. 10 min for each subdomain]..." 1
 while read -u "$subdomains_fd" -r line; do
   echoLog "Testing $line with nikto..." 3
   #nikto -h $line -port 80,443 -o $path/reports/$1/$line/niktoResults.txt  > /dev/null
@@ -28,7 +28,7 @@ echoSuccess "Nikto test completed." 1
 #(TODO) detect the site technology used to adapt the extension to test (-X parameter)
 #E.g -X .html
 discoverDirectoryStructure(){
-  echoLog "Starting directory structure discovery. May take a while [avg. 5 min for each subdomain]..." 2
+  echoLog "Starting directory structure discovery. May take a while [avg. 5 min for each subdomain]..." 1
   while IFS= read -r line; do
     echoLog "Discovering directory structure of $line..." 3
     checkHTTPS $line

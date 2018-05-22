@@ -7,7 +7,7 @@ checkInternetConnection(){
     echoLog "Checking internet connection..." 2
     wget -q --spider 1.1.1.1
     if [ $? -eq 0 ]; then
-        echoSuccess "Connection online." 1
+        echoSuccess "Connection online." 2
     else
         echoError "No internet detected." 0
         myExit
@@ -25,7 +25,7 @@ checkIsValidDomain(){
   host $1  &> /dev/null
     if [ $? -eq 0 ]
     then
-        echoSuccess "Parameter is a valid domain."  1
+        echoSuccess "Parameter is a valid domain."  2
         return 1
     else
         echoLog "Parameter is not a valid domain."  2
@@ -45,7 +45,7 @@ checkIsValidIp(){
   echoLog "Checking if $1 is a valid IP address..." 2
   test='([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])'
   if [[ $1 =~ ^$test\.$test\.$test\.$test$ ]]; then
-    echoSuccess "$1 is a valid IP address..." 1
+    echoSuccess "$1 is a valid IP address..." 2
     return 1
   else
     echoLog "$1 is not a valid IP address..." 2
@@ -61,7 +61,7 @@ checkIsUrlReachable(){
     echoLog "Checking if $1 is reachable..." 2
     wget -q --spider $1
     if [ $? -eq 0 ]; then
-        echoSuccess "$1 is reachable." 1
+        echoSuccess "$1 is reachable." 2
     else
         echoError "$1 is unreachable." 0
         echoError "If you are sure that the host is online add -c to the arguments." 0
