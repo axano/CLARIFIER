@@ -2,9 +2,10 @@
 #This colour
 cyan='\e[0;36m'
 green='\e[0;32m'
+orange='\e[0;33m'
 lightgreen='\e[1;32m'
 white='\e[1;37m'
-red='\e[1;31m'
+red='\e[0;31m'
 yellow='\e[1;33m'
 blue='\e[1;34m'
 resetCollor='\e[m'
@@ -48,7 +49,7 @@ unset IFS
 echoSuccess(){
 	if [[ $2 -le $verbosity ]]; then
 		now=$(date +"%H:%M":%S)
-		echo -e "\e[0;32m[ $now ] $1\e[m"
+		echo -e "$green[ $now ] $1\e[m"
 	fi
 }
 
@@ -61,7 +62,7 @@ echoSuccess(){
 echoLog(){
 	if [[ $2 -le $verbosity ]]; then
 		now=$(date +"%H:%M":%S)
-		echo -e "\e[0;33m[ $now ] $1\e[m"
+		echo -e "$orange[ $now ] $1 $resetCollor"
 	fi
 
 }
@@ -75,9 +76,17 @@ echoLog(){
 echoError(){
 	if [[ $2 -le $verbosity ]]; then
 		now=$(date +"%H:%M":%S)
-		echo -e "\e[0;31m[ $now ] $1\e[m"
+		echo -e "$red[ $now ] $1 $resetCollor"
 	fi
 }
+
+echoDebug(){
+
+		now=$(date +"%H:%M":%S)
+		echo -e "$yellow DEBUG [ $now ] $1 $resetCollor"
+
+}
+
 
 banner()
 {

@@ -74,6 +74,8 @@ This project is licensed under the GNU GPLv3 licence - see the [LICENSE](LICENSE
 
 Add support for web services running on non standard ports
 
+Add throttle support
+
 Add noise/risk levels.
 
 Add subdomain takeover scanner.
@@ -87,22 +89,22 @@ Add tests to check if certain test is successful
 ```
     4 .gitignore
   674 LICENSE
-  107 README.md
-   68 lib/checks/arguments.sh
-   83 lib/checks/internet.sh
+  110 README.md
+   72 lib/checks/arguments.sh
+   96 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
-  114 lib/interface/decoration.sh
-   36 lib/phases/advancedFootprinting.sh
+  123 lib/interface/decoration.sh
+   41 lib/phases/advancedFootprinting.sh
   102 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  116 main.sh
-   75 manual.txt
+  117 main.sh
+   76 manual.txt
     1 reports/dummy.txt
-   11 usage.txt
- 1610 total
+   12 usage.txt
+ 1647 total
 ```
 ### current line count tail

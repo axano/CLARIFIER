@@ -1,6 +1,6 @@
 ###############   USAGE    ###################
 
-      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s] [-v {0...3} ]
+      Usage: ./main.sh -d [ example.com || 1.2.3.4 ] [-h] [-s] [-v {0...3} ] [-c]
         -d    domain to scan, requires parameter [www.example.com , 1.2.3.4 , example.com].
         -s    single url to scan, skips subdomain discovery,
               subdomain discovery is automatically skipped if ip is given with -d.
@@ -10,6 +10,7 @@
               1: print errors and success messages only
               2: print errors, success messages and medium importance log messages
               3: print as much as possible
+        -c    skip connectivity related checks
 
 ###############   INSTALLATION    ###################
 
@@ -38,7 +39,7 @@ awk:
   sudo apt-get install awk
 
 getopts:
-  sudo apt-get install getopts
+  is builtin
 
 dirb:
   refer to the dirb installation page on github

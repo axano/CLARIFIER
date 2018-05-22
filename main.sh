@@ -24,6 +24,7 @@ publicIp=$(curl -s http://whatismyip.akamai.com/)
 domainToTest=''
 singleUrl=0
 verbosity=1
+doInternetRelatedTests=1
 ######START OF PROGRAM
 
 ### START PREQUEL ###

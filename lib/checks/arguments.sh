@@ -12,7 +12,7 @@ checkAndParseArguments(){
   fi
   #: before argument does not take value e.x :s
   #: after argument requires value e.x d:
-  while getopts ":s :h d: v:" opt; do
+  while getopts ":c :s :h d: v:" opt; do
   case $opt in
     d)
     #initializes the domain that has to be scanned
@@ -36,6 +36,10 @@ checkAndParseArguments(){
     h)
       cat "$path/usage.txt"
       myExit
+      ;;
+    c)
+      echoDebug "-c triggered"
+      doInternetRelatedTests=0
       ;;
     :)
       echoError "Option -$OPTARG requires an argument." 0

@@ -3,13 +3,17 @@
 #Checks if there is an internet connection using wget and querries 1.1.1.1
 #Check is necessary because internet is needed to check if the domain is valid.
 checkInternetConnection(){
-  echoLog "Checking internet connection..." 2
-  wget -q --spider 1.1.1.1
-  if [ $? -eq 0 ]; then
-      echoSuccess "Connection online." 1
+  if [ $doInternetRelatedTests -eq 1 ]; then
+    echoLog "Checking internet connection..." 2
+    wget -q --spider 1.1.1.1
+    if [ $? -eq 0 ]; then
+        echoSuccess "Connection online." 1
+    else
+        echoError "No internet detected." 0
+        myExit
+    fi
   else
-      echoError "No internet detected." 0
-      myExit
+    echoLog "Skipping internet connectivity test..." 3
   fi
 }
 
@@ -52,14 +56,23 @@ checkIsValidIp(){
 #Checks if the argument is reachable through internet using wget -q --spider
 #Check is necessary because internet is needed to check if the domain is valid.
 checkIsUrlReachable(){
-  echoLog "Checking if $1 is reachable..." 2
-  wget -q --spider $1
-  if [ $? -eq 0 ]; then
-      echoSuccess "$1 is reachable." 1
+
+  if [ $doInternetRelatedTests -eq 1 ]; then
+    echoLog "Checking if $1 is reachable..." 2
+    wget -q --spider $1
+    if [ $? -eq 0 ]; then
+        echoSuccess "$1 is reachable." 1
+    else
+        echoError "$1 is unreachable." 0
+        echoError "If you are sure that the host is online add -c to the arguments." 0
+        myExit
+    fi
   else
-      echoError "$1 is unreachable." 0
-      myExit
+    echoLog "Skipping url reachability test..." 3
   fi
+
+
+
 
 }
 
@@ -73,7 +86,7 @@ checkHTTPS(){
   echoLog "Checking if $1 uses HTTPS..." 2
   nmap -oG - -p 443 $1 | grep -q "open"
   result=$?
-  if [[ result -eq 0 ]]; then
+  if [ $result -eq 0 ]; then
     echoSuccess "$1 probably uses HTTPS as port 443 is open." 2
     return 1
   else
