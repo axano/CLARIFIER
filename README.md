@@ -95,16 +95,17 @@ Add tests to check if certain test is successful
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
+   27 lib/interface/commandMonitoring.sh
   132 lib/interface/decoration.sh
    45 lib/phases/advancedFootprinting.sh
   103 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  118 main.sh
+  117 main.sh
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1663 total
+ 1689 total
 ```
 ### current line count tail

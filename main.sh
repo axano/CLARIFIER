@@ -44,7 +44,9 @@ checkInternetConnection
 #validity is tested in checkAndParseArguments
 #check is done with  wget -q --spider
 checkIsUrlReachable $domainToTest
-
+#creates a folder with the url name passed as argument in the reports folder
+#while checking if the folder already exist and checks if the folder is created
+initialize $domainToTest
 
 ### END PREQUEL ###
 
@@ -55,9 +57,6 @@ start=`date +%s`
 
 ## START SIMPLE TESTS
 
-#creates a folder with the url name passed as argument in the reports folder
-#while checking if the folder already exist and checks if the folder is created
-initialize $domainToTest
 #discovers available subdomains using aquatone-discover in silent mode
 #through /dev/null piping the output,
 #if url given as parameter is an ip
