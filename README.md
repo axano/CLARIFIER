@@ -89,7 +89,7 @@ Add tests to check if certain test is successful
 ```
     5 .gitignore
   674 LICENSE
-  110 README.md
+  111 README.md
    72 lib/checks/arguments.sh
    96 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -102,10 +102,10 @@ Add tests to check if certain test is successful
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
-  117 main.sh
+  134 main.sh
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1689 total
+ 1707 total
 ```
 ### current line count tail

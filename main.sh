@@ -33,17 +33,22 @@ doInternetRelatedTests=1
 banner
 #checks argument validity and initializes global variables with the arguments
 checkAndParseArguments "$@"
+
 #checks if script is run under root context
 checkIsRoot
+
 #checks if all used programs are installed using 'which'
 checkPrerequisites
+
 #checks internet connection by using wget on 1.1.1.1
 checkInternetConnection
+
 #checks if global variable domainToTest is unreachable
 #domainToTest can be  an IP or a domain
 #validity is tested in checkAndParseArguments
 #check is done with  wget -q --spider
 checkIsUrlReachable $domainToTest
+
 #creates a folder with the url name passed as argument in the reports folder
 #while checking if the folder already exist and checks if the folder is created
 initialize $domainToTest
@@ -65,32 +70,43 @@ start=`date +%s`
 #the scan output is stored in in ~/aquatone/[url]/hosts.txt
 #and is then parsed to /reports/[url]/subdomains.txt using sed
 discoverSubdomains $domainToTest
+
 #creates a folder for every subdomain to store the report for each one of them
 initializeFolderForEverySubdomain $domainToTest
+
 #discovers open ports using nmap (only the most well known)
 discoverPorts $domainToTest
+
 #Gets the http headers using curl -I -m 1 -L -s
 discoverHTTPHeaders $domainToTest
+
 #Gets supported http methods using curl -X OPTIONS -I -m 1 -L -s
 #(TODO script a request with all possible methods and parse results)
 #(TODO some servers dissalow OPTIONS but still allow other methods)
 discoverServerMethods $domainToTest
+
 #Gets the http content using curl -m 1 -L -s
 discoverHTMLOfIndex $domainToTest
+
 #Gets the contents of robots.txt if there is one
 #(TODO parse results if 404 is returned)
 reconRobotsTxt $domainToTest
+
 #Gets the contents of robots.txt if there is one
 #(TODO parse results if 404 is returned)
 reconHumansTxt $domainToTest
+
 #grabs a screenshot of every subdomain using cutycapt
 #(TODO optimize screenshot width)
 reconIndexScreenshot $domainToTest
+
 #filters all urls that are present in the html of index only
 #(TODO cascade search all urls )
 discoverURLSInIndex $domainToTest
+
 #filters html comments that are present in the html of index only
 discoverHTMLComments $domainToTest
+
 
 ## END SIMPLE TESTS
 
@@ -99,6 +115,7 @@ discoverHTMLComments $domainToTest
 #searches for common vulnerabilities with nikto
 #takes some time to complete
 startNikto $domainToTest
+
 #Discovers directory structure of all subdomains
 #Uses dirb with the standard wordlist "/usr/share/dirb/wordlists/common.txt" (kali)
 #(BUG BUG BUG)
