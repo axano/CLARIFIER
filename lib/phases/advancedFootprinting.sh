@@ -27,6 +27,8 @@ echoSuccess "Nikto test completed." 1
 #thats why the test for HTTPS is done.
 #(TODO) detect the site technology used to adapt the extension to test (-X parameter)
 #E.g -X .html
+#argument -r skips recursive search to make the scan faster.
+#(TODO) add script argument to give the user the option to DO a recursive search.
 discoverDirectoryStructure(){
   echoLog "Starting directory structure discovery. May take a while [avg. 5 min for each subdomain]..." 1
   while IFS= read -r line; do
