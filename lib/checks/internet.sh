@@ -56,7 +56,6 @@ checkIsValidIp(){
 #Checks if the argument is reachable through internet using wget -q --spider
 #Check is necessary because internet is needed to check if the domain is valid.
 checkIsUrlReachable(){
-
   if [ $doInternetRelatedTests -eq 1 ]; then
     echoLog "Checking if $1 is reachable..." 2
     wget -q --spider $1
@@ -70,10 +69,6 @@ checkIsUrlReachable(){
   else
     echoLog "Skipping url reachability test..." 3
   fi
-
-
-
-
 }
 
 #(DIRTY)
@@ -92,5 +87,14 @@ checkHTTPS(){
   else
     echoLog "$1 does not use HTTPS or hosts service on port other than 443." 3
     return 0
+  fi
+}
+
+checkConnectionQuality(){
+  if [ $doInternetRelatedTests -eq 1 ]; then
+    echoLog "Checking connection quality..." 2
+
+  else
+    echoLog "Skipping connection quality test..." 3
   fi
 }

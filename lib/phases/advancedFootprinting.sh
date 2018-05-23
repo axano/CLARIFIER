@@ -34,10 +34,10 @@ discoverDirectoryStructure(){
     checkHTTPS $line
     if [ $? -eq 1 ]; then
       #dirb https://$line -o $path/reports/$1/$line/directoryStructure.txt &> /dev/null
-      executeAndMonitorStatus "dirb https://$line -o $path/reports/$1/$line/directoryStructure.txt &> /dev/null"
+      executeAndMonitorStatus "dirb https://$line -o $path/reports/$1/$line/directoryStructure.txt -r &> /dev/null"
     else
       #dirb http://$line -o $path/reports/$1/$line/directoryStructure.txt &> /dev/null
-      executeAndMonitorStatus "dirb http://$line -o $path/reports/$1/$line/directoryStructure.txt &> /dev/null"
+      executeAndMonitorStatus "dirb http://$line -o $path/reports/$1/$line/directoryStructure.txt -r &> /dev/null"
     fi
 
   done < "$path/reports/$1/subdomains.txt"

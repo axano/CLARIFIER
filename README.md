@@ -86,14 +86,16 @@ Add tests to check if certain test is successful
 
 Add connection quality calculator to estimate test time needed
 
+Kill child process if it runs longer than expected
+
 ## AUTO GENERATED PART
 ### current line count head
 ```
     5 .gitignore
   674 LICENSE
-  113 README.md
+  115 README.md
    72 lib/checks/arguments.sh
-   96 lib/checks/internet.sh
+  100 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
@@ -108,6 +110,6 @@ Add connection quality calculator to estimate test time needed
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1709 total
+ 1715 total
 ```
 ### current line count tail
