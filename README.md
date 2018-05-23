@@ -100,8 +100,8 @@ Kill child process if it runs longer than expected
    11 lib/checks/system.sh
    59 lib/checks/various.sh
    27 lib/interface/commandMonitoring.sh
-  132 lib/interface/decoration.sh
-   45 lib/phases/advancedFootprinting.sh
+  136 lib/interface/decoration.sh
+   47 lib/phases/advancedFootprinting.sh
   103 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
@@ -110,6 +110,6 @@ Kill child process if it runs longer than expected
    76 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1715 total
+ 1721 total
 ```
 ### current line count tail

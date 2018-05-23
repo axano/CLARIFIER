@@ -79,7 +79,7 @@ echoError(){
 	fi
 }
 
-
+#same as other special echo functions but just for debug purposes
 echoDebug(){
 	if [[ $debug -eq 1 ]]; then
 		now=$(date +"%H:%M":%S)
@@ -87,6 +87,10 @@ echoDebug(){
 	fi
 }
 
+#has added -n and -e tag for echo
+#-n does not print newline as echo standard does
+#-e makes echo enterpret special characters
+#\r stands for a cariage return to make the spinner look as it is spinning.
 echoSpinner(){
 	if [[ $2 -le $verbosity ]]; then
 		now=$(date +"%H:%M":%S)
