@@ -60,7 +60,7 @@ checkIsValidIp(){
 checkIsUrlReachable(){
   if [ $doInternetRelatedTests -eq 1 ]; then
     echoLog "Checking if $1 is reachable..." 2
-    wget -q --spider $1 -T 2 -t 1
+    wget -q --spider $1 -T 5 -t 1
     if [ $? -eq 0 ]; then
         echoSuccess "$1 is reachable." 2
     else
