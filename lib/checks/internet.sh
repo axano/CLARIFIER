@@ -55,10 +55,12 @@ checkIsValidIp(){
 
 #Checks if the argument is reachable through internet using wget -q --spider
 #Check is necessary because internet is needed to check if the domain is valid.
+#-T parameters sets timeout in seconds
+#-t sets maximum tries
 checkIsUrlReachable(){
   if [ $doInternetRelatedTests -eq 1 ]; then
     echoLog "Checking if $1 is reachable..." 2
-    wget -q --spider $1
+    wget -q --spider $1 -T 2 -t 1
     if [ $? -eq 0 ]; then
         echoSuccess "$1 is reachable." 2
     else

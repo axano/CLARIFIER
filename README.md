@@ -95,7 +95,7 @@ Kill child process if it runs longer than expected
   674 LICENSE
   114 README.md
    72 lib/checks/arguments.sh
-  100 lib/checks/internet.sh
+  102 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
@@ -109,6 +109,6 @@ Kill child process if it runs longer than expected
   134 main.sh
    76 manual.txt
    12 usage.txt
- 1721 total
+ 1723 total
 ```
 ### current line count tail
