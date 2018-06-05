@@ -93,7 +93,7 @@ Kill child process if it runs longer than expected
 ```
     5 .gitignore
   674 LICENSE
-  115 README.md
+  114 README.md
    72 lib/checks/arguments.sh
   100 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
@@ -109,6 +109,6 @@ Kill child process if it runs longer than expected
   134 main.sh
    76 manual.txt
    12 usage.txt
- 1722 total
+ 1721 total
 ```
 ### current line count tail
