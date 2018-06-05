@@ -71,7 +71,7 @@ checkIsUrlReachable(){
   fi
 }
 
-#(DIRTY)
+#(NOTE)
 #Checks if the server has port 443 open to determine if it uses https
 #-oG flag of nmap makes it greppable
 #-q flag of grep silences the output

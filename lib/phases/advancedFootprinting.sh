@@ -31,7 +31,8 @@ echoSuccess "Nikto test completed." 1
 #(TODO) add script argument to give the user the option to DO a recursive search.
 discoverDirectoryStructure(){
   echoLog "Starting directory structure discovery. May take a while [avg. 5 min for each subdomain]..." 1
-  while IFS= read -r line; do
+  #while IFS= read -r line; do
+  while read -u "$subdomains_fd" -r line; do
     echoLog "Discovering directory structure of $line..." 3
     checkHTTPS $line
     if [ $? -eq 1 ]; then
@@ -42,6 +43,7 @@ discoverDirectoryStructure(){
       executeAndMonitorStatus "dirb http://$line -o $path/reports/$1/$line/directoryStructure.txt -r &> /dev/null"
     fi
 
-  done < "$path/reports/$1/subdomains.txt"
+  #done < "$path/reports/$1/subdomains.txt"
+  done {subdomains_fd}<"$path/reports/$1/subdomains.txt"
   echoSuccess "Directory structure discovery completed." 1
 }

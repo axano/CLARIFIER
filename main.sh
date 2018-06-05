@@ -33,7 +33,7 @@ doInternetRelatedTests=1
 banner
 #checks argument validity and initializes global variables with the arguments
 checkAndParseArguments "$@"
-
+: '
 #checks if script is run under root context
 checkIsRoot
 
@@ -115,7 +115,7 @@ discoverHTMLComments $domainToTest
 #searches for common vulnerabilities with nikto
 #takes some time to complete
 startNikto $domainToTest
-
+'
 #Discovers directory structure of all subdomains
 #Uses dirb with the standard wordlist "/usr/share/dirb/wordlists/common.txt" (kali)
 #(BUG BUG BUG)
