@@ -60,7 +60,7 @@ discoverWAF(){
       #and it has to be the lastt line executed before the if case
       echo "${output}" | grep -q behind
       if [ $? -eq 0 ]; then
-        echoError "$output ." 1
+        echoError "$output." 1
         echoError "therefore, tests done around injection (XSS,SQLi,HTMLi) will probably be lost time. " 2
       else
         echoSuccess "$line does not seem to behind some kind of WAF or some sort of security solution." 2

@@ -126,7 +126,6 @@ discoverDirectoryStructure $domainToTest
 
 ## END ADVANCED TESTS
 
-
 ### END MAIN TEST
 
 #initialize end date to calculate time taken to run main test
