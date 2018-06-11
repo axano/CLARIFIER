@@ -47,3 +47,23 @@ discoverDirectoryStructure(){
   done {subdomains_fd}<"$path/reports/$1/subdomains.txt"
   echoSuccess "Directory structure discovery completed." 1
 }
+
+#Tries to detect if the target host is protected by a WebApplicationFirewall
+#uses wafw00f.
+#filters for the string "behind"
+discoverWAF(){
+  echoLog "Starting WAF discovery..." 1
+  while read -u "$subdomains_fd" -r line; do
+    echoLog "WAF discovery for $line..." 3
+      output="$(wafw00f $line  | grep behind)"
+      #following line is needed to see if the output of wafw00f contains the word "behind"
+      #and it has to be the lastt line executed before the if case
+      echo "${output}" | grep -q behind
+      if [ $? -eq 0 ]; then
+        echoError "$output ." 1
+        echoError "therefore, tests done around injection (XSS,SQLi,HTMLi) will probably be lost time. " 2
+      else
+        echoSuccess "$line does not seem to behind some kind of WAF or some sort of security solution." 2
+      fi
+  done {subdomains_fd}<"$path/reports/$1/subdomains.txt"
+}

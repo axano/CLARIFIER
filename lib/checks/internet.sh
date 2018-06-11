@@ -57,6 +57,7 @@ checkIsValidIp(){
 #Check is necessary because internet is needed to check if the domain is valid.
 #-T parameters sets timeout in seconds
 #-t sets maximum tries
+#-q means quite (no output)
 checkIsUrlReachable(){
   if [ $doInternetRelatedTests -eq 1 ]; then
     echoLog "Checking if $1 is reachable..." 2

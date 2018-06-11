@@ -95,20 +95,21 @@ Kill child process if it runs longer than expected
   674 LICENSE
   114 README.md
    72 lib/checks/arguments.sh
-  102 lib/checks/internet.sh
+  103 lib/checks/internet.sh
    41 lib/checks/prerequisites.sh
    11 lib/checks/system.sh
    59 lib/checks/various.sh
    27 lib/interface/commandMonitoring.sh
   136 lib/interface/decoration.sh
-   49 lib/phases/advancedFootprinting.sh
+   69 lib/phases/advancedFootprinting.sh
   103 lib/phases/footprinting.sh
    34 lib/phases/initialization.sh
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
   134 main.sh
    76 manual.txt
+    1 reports/dummy.txt
    12 usage.txt
- 1723 total
+ 1745 total
 ```
 ### current line count tail

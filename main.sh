@@ -111,7 +111,7 @@ discoverHTMLComments $domainToTest
 ## END SIMPLE TESTS
 
 ## START ADVANCED TESTS
-
+discoverWAF $domainToTest
 #searches for common vulnerabilities with nikto
 #takes some time to complete
 startNikto $domainToTest
