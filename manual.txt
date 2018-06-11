@@ -46,6 +46,8 @@ dirb:
   this packet will probably be dropped due to the difficult installation proccess
   although it comes preinstalled in kali
 
+wafw00f:
+  sudo apt-get install wafw00f
 
 Aquatone: https://github.com/michenriksen/aquatone
   AQUATONE depends on Node.js and NPM package manager for its web page screenshotting capabilities.

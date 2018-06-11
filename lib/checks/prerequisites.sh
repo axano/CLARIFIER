@@ -13,6 +13,7 @@ preReqs=(
    'awk'
    'host'
    'dirb'
+   'wafw00f'
    #'getopts' #is builtin
    #'dummy' #dummy prereq to test controls
    #'npm'
