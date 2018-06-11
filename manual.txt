@@ -58,21 +58,3 @@ Aquatone: https://github.com/michenriksen/aquatone
   Finally, the tool itself can be installed with the following command in a terminal:
 
     gem install aquatone
-
-
-
-
-#########   DEPRECATED   ########
-  nodejs & npm & nvm
-    FIRSTLY:
-      as is..
-      curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-    SECONDLY:
-      sudo apt-get install nodejs
-    LAST:
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-
-    Eyewitness: https://github.com/ChrisTruncer/EyeWitness
-      git clone  https://github.com/ChrisTruncer/EyeWitness.git
-      Navigate into the setup directory
-      Run the setup.sh script

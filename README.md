@@ -107,9 +107,9 @@ Kill child process if it runs longer than expected
    36 lib/phases/reconnaissance.sh
    38 lib/uncategorized/housekeeping.sh
   133 main.sh
-   78 manual.txt
+   60 manual.txt
     1 reports/dummy.txt
    12 usage.txt
- 1748 total
+ 1730 total
 ```
 ### current line count tail
