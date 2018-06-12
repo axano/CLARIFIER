@@ -128,9 +128,9 @@ cat << "EOF"
 
 EOF
 
-fancyEcho "Command Line Advanced ReconaIssance FootprInting and EnumeRation tool"
+echo "Command Line Advanced ReconaIssance FootprInting and EnumeRation tool"
 echo ''
-fancyEcho "Brought to you by AXANO"
+echo "Brought to you by AXANO"
 echo ''
 echo ''
 }
